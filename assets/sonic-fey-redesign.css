@@ -22,6 +22,8 @@
   --shadow: 0 18px 70px rgba(0, 0, 0, 0.34);
   --radius: 8px;
   --max: 1180px;
+  --schematic-grid: 20px;
+  --schematic-gap: calc(var(--schematic-grid) * 2);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
@@ -312,10 +314,6 @@ h1 {
 }
 
 .section-head {
-  display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.28fr);
-  gap: 26px;
-  align-items: end;
   margin-bottom: 26px;
 }
 
@@ -352,57 +350,6 @@ h1 {
   min-width: 0;
 }
 
-.equipment-card[data-status="confirmed"] {
-  border-color: rgba(152, 193, 114, 0.45);
-}
-
-.photo-report {
-  border: 1px solid rgba(120, 157, 204, 0.36);
-  border-radius: var(--radius);
-  background: rgba(120, 157, 204, 0.08);
-  color: var(--muted);
-  padding: 12px 14px;
-  margin-bottom: 16px;
-  font-size: 13px;
-  line-height: 1.45;
-}
-
-.photo-report.has-missing {
-  border-color: rgba(201, 120, 130, 0.46);
-  background: var(--rose-soft);
-  color: var(--text);
-}
-
-.photo-report.is-complete {
-  border-color: rgba(152, 193, 114, 0.45);
-  background: var(--green-soft);
-  color: var(--text);
-}
-
-.photo-report code {
-  color: var(--text);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.95em;
-}
-
-.missing-photo-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 9px;
-}
-
-.missing-photo-list span {
-  border: 1px solid rgba(201, 120, 130, 0.48);
-  border-radius: 999px;
-  background: rgba(13, 13, 12, 0.38);
-  color: var(--text);
-  padding: 4px 7px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 10px;
-  line-height: 1;
-}
-
 .equipment-photos {
   display: grid;
   grid-template-columns: 1fr;
@@ -429,10 +376,27 @@ h1 {
   background: #0a0a09;
 }
 
+.equipment-photo-frame.is-loaded {
+  cursor: zoom-in;
+}
+
+.equipment-photo-frame.is-loaded:hover,
+.equipment-photo-frame.is-loaded:focus-visible {
+  border-color: rgba(230, 160, 68, 0.7);
+  box-shadow: 0 0 0 2px rgba(230, 160, 68, 0.16), 0 18px 42px rgba(0, 0, 0, 0.28);
+  outline: none;
+}
+
 .equipment-photo-frame img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transition: transform 160ms ease;
+}
+
+.equipment-photo-frame.is-loaded:hover img,
+.equipment-photo-frame.is-loaded:focus-visible img {
+  transform: scale(1.015);
 }
 
 .equipment-photo-frame figcaption {
@@ -474,6 +438,77 @@ h1 {
   display: block;
 }
 
+body.lightbox-open {
+  overflow: hidden;
+}
+
+.photo-lightbox[hidden] {
+  display: none;
+}
+
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background: rgba(2, 2, 2, 0.94);
+}
+
+.photo-lightbox-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+.photo-lightbox img {
+  display: block;
+  max-width: min(96vw, 1900px);
+  max-height: 86vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+.photo-lightbox-caption {
+  max-width: min(92vw, 980px);
+  margin-top: 12px;
+  color: rgba(245, 240, 232, 0.82);
+  font-size: 13px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.photo-lightbox-close {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  border: 1px solid rgba(245, 240, 232, 0.3);
+  border-radius: 999px;
+  background: rgba(13, 13, 12, 0.84);
+  color: var(--text);
+  padding: 9px 13px;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.photo-lightbox-close:hover,
+.photo-lightbox-close:focus-visible {
+  border-color: rgba(230, 160, 68, 0.72);
+  outline: none;
+}
+
 .equipment-top {
   display: flex;
   align-items: flex-start;
@@ -495,8 +530,7 @@ h1 {
   line-height: 1.25;
 }
 
-.chip,
-.status-chip {
+.chip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -509,12 +543,6 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   white-space: nowrap;
-}
-
-.status-chip.confirmed {
-  border-color: rgba(152, 193, 114, 0.45);
-  background: var(--green-soft);
-  color: var(--green);
 }
 
 .equipment-detail {
@@ -562,27 +590,43 @@ h1 {
   line-height: 1.4;
 }
 
-.diagram-lane {
+.schematic-canvas {
+  position: relative;
   margin-top: 18px;
   display: grid;
-  grid-template-columns: minmax(160px, 1fr) 42px minmax(160px, 1fr) 42px minmax(160px, 1fr);
-  gap: 0;
+  gap: var(--schematic-gap);
   align-items: stretch;
+  padding: var(--schematic-grid);
+  border: 1px solid rgba(81, 73, 64, 0.42);
+  border-radius: 6px;
+  background:
+    linear-gradient(rgba(81, 73, 64, 0.17) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(81, 73, 64, 0.17) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent),
+    rgba(13, 13, 12, 0.34);
+  background-size:
+    var(--schematic-grid) var(--schematic-grid),
+    var(--schematic-grid) var(--schematic-grid),
+    auto,
+    auto;
+  overflow: hidden;
+  isolation: isolate;
 }
 
-.diagram-lane.audio {
-  grid-template-columns: minmax(130px, 0.9fr) 42px minmax(130px, 0.9fr) 42px minmax(170px, 1.1fr) 42px minmax(170px, 1.1fr);
-}
-
-.audio-flow-grid {
-  margin-top: 18px;
-  display: grid;
-  grid-template-columns: minmax(120px, 0.9fr) 42px minmax(120px, 0.9fr) 42px minmax(150px, 1fr) 42px minmax(150px, 1fr);
+.audio-schematic {
+  min-height: calc(var(--schematic-grid) * 18);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-areas:
-    "source arrow1 tascam arrow2 amps arrow3 speakers"
-    ". . tascamdrop subfeed di subarrow sub";
-  gap: 12px 0;
-  align-items: stretch;
+    "source tascam amps speakers"
+    ". . di sub";
+}
+
+.network-schematic {
+  min-height: calc(var(--schematic-grid) * 17);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-areas:
+    "net-sources net-switch net-receiver"
+    "trace-poe trace-ubiquiti trace-edge";
 }
 
 .flow-source {
@@ -609,58 +653,90 @@ h1 {
   grid-area: sub;
 }
 
-.flow-arrow-1 {
-  grid-area: arrow1;
+.net-sources {
+  grid-area: net-sources;
 }
 
-.flow-arrow-2 {
-  grid-area: arrow2;
+.net-switch {
+  grid-area: net-switch;
 }
 
-.flow-arrow-3 {
-  grid-area: arrow3;
+.net-receiver {
+  grid-area: net-receiver;
 }
 
-.flow-arrow-sub {
-  grid-area: subarrow;
+.trace-poe {
+  grid-area: trace-poe;
 }
 
-.flow-arrow-sub-feed {
-  grid-area: subfeed;
+.trace-ubiquiti {
+  grid-area: trace-ubiquiti;
 }
 
-.sub-feed-arrow {
-  position: relative;
+.trace-edge {
+  grid-area: trace-edge;
 }
 
-.sub-feed-arrow::before {
-  content: "sub send";
+.schematic-svg {
   position: absolute;
-  top: -18px;
-  left: 50%;
-  transform: translateX(-50%);
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.schematic-svg-mobile {
+  display: none;
+}
+
+.schematic-svg marker path {
+  fill: currentColor;
+}
+
+.schematic-path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.schematic-path-audio,
+.schematic-svg #schematic-arrow-audio path,
+.schematic-svg #schematic-arrow-audio-mobile path {
   color: var(--orange);
+}
+
+.schematic-path-sub {
+  color: var(--rose);
+  stroke-dasharray: 7 5;
+}
+
+.schematic-svg #schematic-arrow-sub path,
+.schematic-svg #schematic-arrow-sub-mobile path {
+  color: var(--rose);
+}
+
+.schematic-path-network,
+.schematic-svg #schematic-arrow-network path,
+.schematic-svg #schematic-arrow-network-mobile path {
+  color: var(--teal);
+}
+
+.schematic-label {
+  fill: currentColor;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 10px;
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  white-space: nowrap;
 }
 
-.branch-drop {
-  min-height: 26px;
-  border-left: 2px solid var(--orange);
-  justify-self: center;
-  opacity: 0.78;
-}
-
-.branch-drop-tascam {
-  grid-area: tascamdrop;
-}
-
-.branch-drop-speaker {
-  display: none;
+.schematic-label-sub {
+  color: var(--rose);
 }
 
 .diagram-node {
@@ -673,6 +749,9 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   min-width: 0;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.18);
 }
 
 .diagram-node.network {
@@ -715,40 +794,6 @@ h1 {
 
 .node-lines li + li {
   margin-top: 5px;
-}
-
-.arrow-cell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--orange);
-  min-width: 42px;
-}
-
-.arrow-line {
-  width: 100%;
-  height: 2px;
-  background: currentColor;
-  position: relative;
-}
-
-.arrow-line::after {
-  content: "";
-  position: absolute;
-  right: -1px;
-  top: 50%;
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid currentColor;
-  border-right: 2px solid currentColor;
-  transform: translateY(-50%) rotate(45deg);
-}
-
-.branch-row {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 14px;
 }
 
 .legend-row {
@@ -830,10 +875,6 @@ h1 {
   gap: 12px;
 }
 
-.device-header .status-chip {
-  justify-self: start;
-}
-
 .device-title {
   font-size: 17px;
   line-height: 1.2;
@@ -863,8 +904,8 @@ h1 {
 
 .port-row {
   display: grid;
-  grid-template-columns: 20px minmax(0, 1fr);
-  gap: 10px;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 11px;
   align-items: start;
   padding: 10px 0;
   border-top: 1px solid rgba(52, 48, 43, 0.74);
@@ -874,72 +915,58 @@ h1 {
   border-top: 0;
 }
 
-.jack {
-  width: 18px;
-  height: 18px;
+.port-icon {
+  width: 22px;
+  height: 22px;
   border: 1px solid var(--line-strong);
+  border-radius: 5px;
   background: #0a0a09;
-  margin-top: 2px;
+  color: var(--subtle);
+  display: block;
+  fill: currentColor;
+  margin-top: 1px;
+  padding: 3px;
   flex: none;
 }
 
-.jack.rj45 {
-  border-radius: 3px;
-  box-shadow: inset 0 -5px 0 rgba(69, 184, 176, 0.45);
+.port-icon path {
+  fill: currentColor;
 }
 
-.jack.db25 {
-  width: 20px;
-  height: 14px;
-  border-radius: 6px;
-  box-shadow: inset 0 0 0 3px rgba(230, 160, 68, 0.24);
+.port-icon.rj45,
+.port-icon.wireless {
+  color: var(--teal);
+  border-color: rgba(69, 184, 176, 0.42);
+  background: rgba(69, 184, 176, 0.08);
 }
 
-.jack.dsub25 {
-  width: 20px;
-  height: 14px;
-  border-radius: 6px;
-  box-shadow: inset 0 0 0 3px rgba(230, 160, 68, 0.24);
+.port-icon.db25,
+.port-icon.dsub25,
+.port-icon.rca,
+.port-icon.speaker {
+  color: var(--orange);
+  border-color: rgba(230, 160, 68, 0.42);
+  background: rgba(230, 160, 68, 0.08);
 }
 
-.jack.rca {
+.port-icon.power,
+.port-icon.mini,
+.port-icon.sfp,
+.port-icon.usb {
+  color: var(--blue);
+  border-color: rgba(120, 157, 204, 0.42);
+  background: rgba(120, 157, 204, 0.08);
+}
+
+.port-icon.wireless,
+.port-icon.xlr {
   border-radius: 999px;
-  box-shadow: inset 0 0 0 5px rgba(230, 160, 68, 0.3);
 }
 
-.jack.speaker {
-  border-radius: 2px;
-  background: linear-gradient(90deg, rgba(230, 160, 68, 0.5) 0 45%, transparent 45% 55%, rgba(230, 160, 68, 0.5) 55%);
-}
-
-.jack.power {
-  border-radius: 2px;
-  box-shadow: inset 0 0 0 4px rgba(120, 157, 204, 0.28);
-}
-
-.jack.mini {
-  border-radius: 999px;
-  box-shadow: inset 0 0 0 4px rgba(120, 157, 204, 0.25);
-}
-
-.jack.sfp {
-  border-radius: 3px;
-  box-shadow: inset 0 -5px 0 rgba(120, 157, 204, 0.4);
-}
-
-.jack.usb {
-  border-radius: 7px;
-  box-shadow: inset 0 0 0 4px rgba(120, 157, 204, 0.28);
-}
-
-.jack.wireless {
-  border-radius: 999px;
-  box-shadow: inset 0 0 0 4px rgba(69, 184, 176, 0.32);
-}
-
-.jack.xlr {
-  border-radius: 999px;
-  box-shadow: inset 0 0 0 3px rgba(201, 120, 130, 0.35);
+.port-icon.xlr {
+  color: var(--rose);
+  border-color: rgba(201, 120, 130, 0.42);
+  background: rgba(201, 120, 130, 0.08);
 }
 
 .port-label-line {
@@ -1027,61 +1054,48 @@ h1 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .diagram-lane,
-  .diagram-lane.audio {
+  .schematic-canvas {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: var(--schematic-gap);
+    min-height: 0;
   }
 
-  .audio-flow-grid {
+  .audio-schematic {
     grid-template-columns: 1fr;
     grid-template-areas:
       "source"
-      "arrow1"
       "tascam"
-      "subfeed"
-      "di"
-      "subarrow"
-      "sub"
-      "arrow2"
       "amps"
-      "arrow3"
-      "speakers";
-    gap: 10px;
+      "speakers"
+      "di"
+      "sub";
   }
 
-  .branch-drop-tascam {
+  .network-schematic {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "net-sources"
+      "net-switch"
+      "net-receiver"
+      "trace-poe"
+      "trace-ubiquiti"
+      "trace-edge";
+  }
+
+  .schematic-svg-desktop {
     display: none;
   }
 
-  .arrow-cell {
-    min-height: 32px;
+  .schematic-svg-mobile {
+    display: block;
   }
 
-  .arrow-line {
-    width: 2px;
-    height: 32px;
-  }
-
-  .arrow-line::after {
-    right: 50%;
-    top: auto;
-    bottom: -2px;
-    transform: translateX(50%) rotate(135deg);
-  }
-
-  .sub-feed-arrow::before {
-    left: calc(50% + 20px);
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .branch-row {
-    grid-template-columns: 1fr;
+  .schematic-label {
+    font-size: 9px;
   }
 
   .diagram-node {
-    min-height: 0;
+    min-height: 120px;
   }
 }
 
@@ -1117,6 +1131,15 @@ h1 {
 
   .equipment-photo-frame {
     min-height: 120px;
+  }
+
+  .photo-lightbox {
+    padding: 14px;
+  }
+
+  .photo-lightbox img {
+    max-width: 96vw;
+    max-height: 82vh;
   }
 
   .equipment-photos[data-photo-count="2"] {
