@@ -1,0 +1,195 @@
+{
+  "project": "Sonic Sphere Fey",
+  "slug": "sonic-sphere-fey",
+  "packVersion": "v2",
+  "generatedBy": "tools/generate_easyschematic_pack.py",
+  "schemaVersion": 39,
+  "sourceFiles": [
+    "README.md",
+    "references/README.md",
+    "project-root pasted Sonic Sphere Fey system note"
+  ],
+  "artifacts": [
+    "sonic-sphere-fey-system-v2.easyschematic.json",
+    "sonic-sphere-fey-device-library-v2.json",
+    "sonic-sphere-fey-device-library-v2.csv",
+    "sonic-sphere-fey-cable-schedule-v2.csv",
+    "manifest-v2.json",
+    "README-v2.md",
+    "field-verification-v2.md"
+  ],
+  "counts": {
+    "deviceTemplates": 15,
+    "schematicNodes": 19,
+    "schematicEdges": 70,
+    "cableScheduleRows": 97,
+    "focalSpeakerNodes": 1,
+    "physicalFocalSpeakers": 30,
+    "ma1260Nodes": 2
+  },
+  "templateStatuses": {
+    "confirmed": 11,
+    "trace-required": 3,
+    "candidate": 1
+  },
+  "easySchematicLibrarySource": {
+    "repository": "duremovich/EasySchematic",
+    "treeSha": "08b55504224fd80b19c9ce4e8c4d11a012ff31cc",
+    "treeUrl": "https://github.com/duremovich/EasySchematic/tree/master/src/devices",
+    "checkedDate": "2026-06-08"
+  },
+  "easySchematicLibraryMatchStatuses": {
+    "none-found": 10,
+    "family-only": 2,
+    "generic-compatible": 3
+  },
+  "easySchematicLibraryMatches": [
+    {
+      "templateId": "sonic-sphere-fey-tascam-ml-32d",
+      "label": "TASCAM ML-32D",
+      "status": "none-found",
+      "matchedTemplate": null,
+      "notes": "No bundled TASCAM ML-32D template found. Reviewed Focusrite RedNet A16R as a similar Dante DB25 interface, but it is 16x16 and not a valid model substitute."
+    },
+    {
+      "templateId": "sonic-sphere-fey-dayton-ma1240a",
+      "label": "Dayton Audio MA1240a",
+      "status": "none-found",
+      "matchedTemplate": null,
+      "notes": "No bundled Dayton MA1240a template found; keep custom 12-channel RCA-to-speaker template."
+    },
+    {
+      "templateId": "sonic-sphere-fey-dayton-ma1260",
+      "label": "Dayton Audio MA1260",
+      "status": "none-found",
+      "matchedTemplate": null,
+      "notes": "No bundled Dayton MA1260 template found; keep custom 12-channel RCA-to-speaker template."
+    },
+    {
+      "templateId": "sonic-sphere-fey-focal-100-od8",
+      "label": "Focal 100 OD8",
+      "status": "none-found",
+      "matchedTemplate": null,
+      "notes": "No bundled Focal 100 OD8 template found; keep confirmed custom speaker template."
+    },
+    {
+      "templateId": "sonic-sphere-fey-devine-onyx-18sxa",
+      "label": "Devine Onyx 18SXA",
+      "status": "none-found",
+      "matchedTemplate": null,
+      "notes": "No bundled Devine Onyx 18SXA powered subwoofer template found."
+    },
+    {
+      "templateId": "sonic-sphere-fey-devine-di-003",
+      "label": "Devine DI-003",
+      "status": "none-found",
+      "matchedTemplate": null,
+      "notes": "No bundled Devine DI-003 or generic DI-box template found in the checked source files."
+    },
+    {
+      "templateId": "sonic-sphere-fey-dante-avio-bluetooth",
+      "label": "Dante AVIO Bluetooth ADP-BT-AU-2X1",
+      "status": "family-only",
+      "matchedTemplate": null,
+      "notes": "Bundled Audinate AVIO templates exist for analog input, analog output, and USB, but not Bluetooth. Do not substitute them as exact matches."
+    },
+    {
+      "templateId": "sonic-sphere-fey-macbook-air-m2",
+      "label": "MacBook Air M2 (2022)",
+      "status": "generic-compatible",
+      "matchedTemplate": {
+        "id": "c0a80101-0027-4000-8000-000000000039",
+        "label": "Computer",
+        "modelNumber": "",
+        "sourceFile": "src/devices/sources.ts"
+      },
+      "notes": "Bundled generic Computer template exists, but not MacBook Air M2. Keep custom Apple model and DVS software port."
+    },
+    {
+      "templateId": "sonic-sphere-fey-usb-c-multiport-adapter",
+      "label": "USB-C Multiport Adapter",
+      "status": "none-found",
+      "matchedTemplate": null,
+      "notes": "No bundled USB-C multiport Ethernet adapter template found."
+    },
+    {
+      "templateId": "sonic-sphere-fey-tp-link-5-port-switch-tbd",
+      "label": "TP-Link 5-Port Ethernet Switch (model TBD)",
+      "status": "generic-compatible",
+      "matchedTemplate": {
+        "id": "c0a80101-0026-4000-8000-000000000038",
+        "label": "Ethernet Switch (8-port)",
+        "modelNumber": "",
+        "sourceFile": "src/devices/networking.ts"
+      },
+      "notes": "Bundled generic 8-port switch is closest available; exact TP-Link 5-port model remains trace-required."
+    },
+    {
+      "templateId": "sonic-sphere-fey-tp-link-poe150s",
+      "label": "TP-Link POE150S / TL-POE150S",
+      "status": "none-found",
+      "matchedTemplate": null,
+      "notes": "No bundled TP-Link POE150S injector template found."
+    },
+    {
+      "templateId": "sonic-sphere-fey-ubiquiti-gp-h240-125g",
+      "label": "Ubiquiti GP-H240-125G PoE Injector",
+      "status": "none-found",
+      "matchedTemplate": null,
+      "notes": "No bundled Ubiquiti GP-H240-125G injector template found."
+    },
+    {
+      "templateId": "sonic-sphere-fey-ubiquiti-edgepoint-r6",
+      "label": "Ubiquiti EdgePoint R6",
+      "status": "none-found",
+      "matchedTemplate": null,
+      "notes": "No bundled Ubiquiti EdgePoint R6 template found."
+    },
+    {
+      "templateId": "sonic-sphere-fey-db25-to-rca-fanout",
+      "label": "DB25 to RCA Fanout (8 ch)",
+      "status": "family-only",
+      "matchedTemplate": null,
+      "notes": "Bundled DB25 break-out is XLR-based; our confirmed signal path needs RCA fanouts, so keep custom RCA connector template."
+    },
+    {
+      "templateId": "sonic-sphere-fey-db25-to-xlr-fanout-candidate",
+      "label": "DB25 to XLR Fanout Candidate (8 ch)",
+      "status": "generic-compatible",
+      "matchedTemplate": {
+        "id": "c0a80101-00e1-4000-8000-000000000341",
+        "label": "Audio Snake DB25 (8-ch) Break-out",
+        "modelNumber": "",
+        "sourceFile": "src/devices/cable-accessories.ts"
+      },
+      "notes": "Bundled DB25 8-channel break-out topology matches the candidate DB25-to-XLR output direction; exact cable model/direction remains unresolved."
+    }
+  ],
+  "unresolvedItems": [
+    {
+      "item": "USB-C Multiport Adapter",
+      "status": "trace-required",
+      "verification": "Exact manufacturer/model unknown; read adapter label or purchase record."
+    },
+    {
+      "item": "TP-Link 5-Port Ethernet Switch (model TBD)",
+      "status": "trace-required",
+      "verification": "Exact model and PoE capability still need physical confirmation."
+    },
+    {
+      "item": "DB25 to RCA Fanout (8 ch)",
+      "status": "trace-required",
+      "verification": "Exact manufacturer/model and balanced-to-unbalanced wiring need cable-label verification."
+    },
+    {
+      "item": "DB25 to XLR Fanout Candidate (8 ch)",
+      "status": "candidate",
+      "verification": "DTM/DTF direction and connected ML-32D input/output side remain unresolved."
+    }
+  ],
+  "validationPolicy": {
+    "cloudSave": "not performed",
+    "communitySubmission": "not performed",
+    "localImport": "manual final acceptance gate"
+  }
+}

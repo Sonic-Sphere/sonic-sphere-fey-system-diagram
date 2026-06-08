@@ -1,0 +1,188 @@
+model_number,manufacturer,label,device_type,reference_url,height_mm,width_mm,depth_mm,weight_kg,power_draw_w,voltage,port_label,port_direction,port_signal_type,port_connector_type,port_section
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,PRIMARY Dante,bidirectional,dante,rj45,Dante
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,SECONDARY Dante,bidirectional,dante,rj45,Dante
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,AC In,input,power,iec,Power
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 01,input,analog-audio,db25,Analog Inputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 02,input,analog-audio,db25,Analog Inputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 03,input,analog-audio,db25,Analog Inputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 04,input,analog-audio,db25,Analog Inputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 05,input,analog-audio,db25,Analog Inputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 06,input,analog-audio,db25,Analog Inputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 07,input,analog-audio,db25,Analog Inputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 08,input,analog-audio,db25,Analog Inputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 09,input,analog-audio,db25,Analog Inputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 10,input,analog-audio,db25,Analog Inputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 11,input,analog-audio,db25,Analog Inputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 12,input,analog-audio,db25,Analog Inputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 13,input,analog-audio,db25,Analog Inputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 14,input,analog-audio,db25,Analog Inputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 15,input,analog-audio,db25,Analog Inputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 16,input,analog-audio,db25,Analog Inputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 17,input,analog-audio,db25,Analog Inputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 18,input,analog-audio,db25,Analog Inputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 19,input,analog-audio,db25,Analog Inputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 20,input,analog-audio,db25,Analog Inputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 21,input,analog-audio,db25,Analog Inputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 22,input,analog-audio,db25,Analog Inputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 23,input,analog-audio,db25,Analog Inputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 24,input,analog-audio,db25,Analog Inputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 25,input,analog-audio,db25,Analog Inputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 26,input,analog-audio,db25,Analog Inputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 27,input,analog-audio,db25,Analog Inputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 28,input,analog-audio,db25,Analog Inputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 29,input,analog-audio,db25,Analog Inputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 30,input,analog-audio,db25,Analog Inputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 31,input,analog-audio,db25,Analog Inputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog In 32,input,analog-audio,db25,Analog Inputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 01,output,analog-audio,db25,Analog Outputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 02,output,analog-audio,db25,Analog Outputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 03,output,analog-audio,db25,Analog Outputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 04,output,analog-audio,db25,Analog Outputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 05,output,analog-audio,db25,Analog Outputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 06,output,analog-audio,db25,Analog Outputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 07,output,analog-audio,db25,Analog Outputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 08,output,analog-audio,db25,Analog Outputs 1-8
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 09,output,analog-audio,db25,Analog Outputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 10,output,analog-audio,db25,Analog Outputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 11,output,analog-audio,db25,Analog Outputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 12,output,analog-audio,db25,Analog Outputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 13,output,analog-audio,db25,Analog Outputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 14,output,analog-audio,db25,Analog Outputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 15,output,analog-audio,db25,Analog Outputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 16,output,analog-audio,db25,Analog Outputs 9-16
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 17,output,analog-audio,db25,Analog Outputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 18,output,analog-audio,db25,Analog Outputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 19,output,analog-audio,db25,Analog Outputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 20,output,analog-audio,db25,Analog Outputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 21,output,analog-audio,db25,Analog Outputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 22,output,analog-audio,db25,Analog Outputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 23,output,analog-audio,db25,Analog Outputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 24,output,analog-audio,db25,Analog Outputs 17-24
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 25,output,analog-audio,db25,Analog Outputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 26,output,analog-audio,db25,Analog Outputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 27,output,analog-audio,db25,Analog Outputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 28,output,analog-audio,db25,Analog Outputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 29,output,analog-audio,db25,Analog Outputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 30,output,analog-audio,db25,Analog Outputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 31,output,analog-audio,db25,Analog Outputs 25-32
+ML-32D,TASCAM,TASCAM ML-32D,audio-interface,https://www.tascam.eu/en/ml-16d_ml-32d,,,,,,,Analog Out 32,output,analog-audio,db25,Analog Outputs 25-32
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,AC In,input,power,iec,Power
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Line In Ch 01,input,analog-audio,rca,Line Inputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Line In Ch 02,input,analog-audio,rca,Line Inputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Line In Ch 03,input,analog-audio,rca,Line Inputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Line In Ch 04,input,analog-audio,rca,Line Inputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Line In Ch 05,input,analog-audio,rca,Line Inputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Line In Ch 06,input,analog-audio,rca,Line Inputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Line In Ch 07,input,analog-audio,rca,Line Inputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Line In Ch 08,input,analog-audio,rca,Line Inputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Line In Ch 09,input,analog-audio,rca,Line Inputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Line In Ch 10,input,analog-audio,rca,Line Inputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Line In Ch 11,input,analog-audio,rca,Line Inputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Line In Ch 12,input,analog-audio,rca,Line Inputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Speaker Out Ch 01,output,speaker-level,phoenix,Speaker Outputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Speaker Out Ch 02,output,speaker-level,phoenix,Speaker Outputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Speaker Out Ch 03,output,speaker-level,phoenix,Speaker Outputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Speaker Out Ch 04,output,speaker-level,phoenix,Speaker Outputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Speaker Out Ch 05,output,speaker-level,phoenix,Speaker Outputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Speaker Out Ch 06,output,speaker-level,phoenix,Speaker Outputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Speaker Out Ch 07,output,speaker-level,phoenix,Speaker Outputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Speaker Out Ch 08,output,speaker-level,phoenix,Speaker Outputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Speaker Out Ch 09,output,speaker-level,phoenix,Speaker Outputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Speaker Out Ch 10,output,speaker-level,phoenix,Speaker Outputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Speaker Out Ch 11,output,speaker-level,phoenix,Speaker Outputs
+MA1240a,Dayton Audio,Dayton Audio MA1240a,amplifier,https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier,,,,,,,Speaker Out Ch 12,output,speaker-level,phoenix,Speaker Outputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,AC In,input,power,iec,Power
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Line In Ch 01,input,analog-audio,rca,Line Inputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Line In Ch 02,input,analog-audio,rca,Line Inputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Line In Ch 03,input,analog-audio,rca,Line Inputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Line In Ch 04,input,analog-audio,rca,Line Inputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Line In Ch 05,input,analog-audio,rca,Line Inputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Line In Ch 06,input,analog-audio,rca,Line Inputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Line In Ch 07,input,analog-audio,rca,Line Inputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Line In Ch 08,input,analog-audio,rca,Line Inputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Line In Ch 09,input,analog-audio,rca,Line Inputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Line In Ch 10,input,analog-audio,rca,Line Inputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Line In Ch 11,input,analog-audio,rca,Line Inputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Line In Ch 12,input,analog-audio,rca,Line Inputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Speaker Out Ch 01,output,speaker-level,phoenix,Speaker Outputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Speaker Out Ch 02,output,speaker-level,phoenix,Speaker Outputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Speaker Out Ch 03,output,speaker-level,phoenix,Speaker Outputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Speaker Out Ch 04,output,speaker-level,phoenix,Speaker Outputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Speaker Out Ch 05,output,speaker-level,phoenix,Speaker Outputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Speaker Out Ch 06,output,speaker-level,phoenix,Speaker Outputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Speaker Out Ch 07,output,speaker-level,phoenix,Speaker Outputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Speaker Out Ch 08,output,speaker-level,phoenix,Speaker Outputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Speaker Out Ch 09,output,speaker-level,phoenix,Speaker Outputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Speaker Out Ch 10,output,speaker-level,phoenix,Speaker Outputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Speaker Out Ch 11,output,speaker-level,phoenix,Speaker Outputs
+MA1260,Dayton Audio,Dayton Audio MA1260,amplifier,https://daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc,,,,,,,Speaker Out Ch 12,output,speaker-level,phoenix,Speaker Outputs
+100 OD8,Focal,Focal 100 OD8,speaker,https://www.focal.com/products/100-od-8,,,,,,,Speaker Input,input,speaker-level,terminal-block,Speaker
+Onyx 18SXA,Devine,Devine Onyx 18SXA,speaker,https://www.bax-shop.nl/actieve-subwoofers/devine-onyx-18sxa-actieve-subwoofer,,,,,,,Left Line Input,input,analog-audio,xlr-3,Audio
+Onyx 18SXA,Devine,Devine Onyx 18SXA,speaker,https://www.bax-shop.nl/actieve-subwoofers/devine-onyx-18sxa-actieve-subwoofer,,,,,,,AC In,input,power,iec,Power
+DI-003,Devine,Devine DI-003,di-box,https://www.bax-shop.co.uk/di-boxes/devine-di-003-di-box,,,,,,,Ch 1 Input,input,analog-audio,trs-quarter,Channel 1
+DI-003,Devine,Devine DI-003,di-box,https://www.bax-shop.co.uk/di-boxes/devine-di-003-di-box,,,,,,,Ch 1 Thru,output,analog-audio,trs-quarter,Channel 1
+DI-003,Devine,Devine DI-003,di-box,https://www.bax-shop.co.uk/di-boxes/devine-di-003-di-box,,,,,,,Ch 1 XLR Out,output,analog-audio,xlr-3,Channel 1
+DI-003,Devine,Devine DI-003,di-box,https://www.bax-shop.co.uk/di-boxes/devine-di-003-di-box,,,,,,,Ch 2 Input,input,analog-audio,trs-quarter,Channel 2
+DI-003,Devine,Devine DI-003,di-box,https://www.bax-shop.co.uk/di-boxes/devine-di-003-di-box,,,,,,,Ch 2 Thru,output,analog-audio,trs-quarter,Channel 2
+DI-003,Devine,Devine DI-003,di-box,https://www.bax-shop.co.uk/di-boxes/devine-di-003-di-box,,,,,,,Ch 2 XLR Out,output,analog-audio,xlr-3,Channel 2
+ADP-BT-AU-2X1,Audinate,Dante AVIO Bluetooth ADP-BT-AU-2X1,audio-interface,https://www.getdante.com/avio,,,,,,,Bluetooth Audio,input,bluetooth,wireless,Wireless
+ADP-BT-AU-2X1,Audinate,Dante AVIO Bluetooth ADP-BT-AU-2X1,audio-interface,https://www.getdante.com/avio,,,,,,,Dante RJ45 + PoE,bidirectional,dante,rj45,Network
+MacBook Air M2 (2022),Apple,MacBook Air M2 (2022),computer,https://support.apple.com/en-gb/111867,,,,,,,USB-C / Thunderbolt,bidirectional,thunderbolt,usb-c,Computer
+MacBook Air M2 (2022),Apple,MacBook Air M2 (2022),computer,https://support.apple.com/en-gb/111867,,,,,,,Dante Virtual Soundcard Tx,output,dante,none,Software
+,Generic,USB-C Multiport Adapter,adapter,,,,,,,,USB-C Host,bidirectional,thunderbolt,usb-c,Host
+,Generic,USB-C Multiport Adapter,adapter,,,,,,,,Ethernet,bidirectional,ethernet,rj45,Network
+,Generic,USB-C Multiport Adapter,adapter,,,,,,,,HDMI Out,output,hdmi,hdmi,Video
+,Generic,USB-C Multiport Adapter,adapter,,,,,,,,USB-A 1,bidirectional,usb,usb-a,USB
+,Generic,USB-C Multiport Adapter,adapter,,,,,,,,USB-A 2,bidirectional,usb,usb-a,USB
+,Generic,USB-C Multiport Adapter,adapter,,,,,,,,USB-A 3,bidirectional,usb,usb-a,USB
+,Generic,USB-C Multiport Adapter,adapter,,,,,,,,USB-C Power In,input,power,usb-c,Power
+,TP-Link,TP-Link 5-Port Ethernet Switch (model TBD),network-switch,https://www.tp-link.com/us/home-networking/5-port-switch/tl-sg105/,,,,,,,Port 1,bidirectional,ethernet,rj45,Ethernet
+,TP-Link,TP-Link 5-Port Ethernet Switch (model TBD),network-switch,https://www.tp-link.com/us/home-networking/5-port-switch/tl-sg105/,,,,,,,Port 2,bidirectional,ethernet,rj45,Ethernet
+,TP-Link,TP-Link 5-Port Ethernet Switch (model TBD),network-switch,https://www.tp-link.com/us/home-networking/5-port-switch/tl-sg105/,,,,,,,Port 3,bidirectional,ethernet,rj45,Ethernet
+,TP-Link,TP-Link 5-Port Ethernet Switch (model TBD),network-switch,https://www.tp-link.com/us/home-networking/5-port-switch/tl-sg105/,,,,,,,Port 4,bidirectional,ethernet,rj45,Ethernet
+,TP-Link,TP-Link 5-Port Ethernet Switch (model TBD),network-switch,https://www.tp-link.com/us/home-networking/5-port-switch/tl-sg105/,,,,,,,Port 5,bidirectional,ethernet,rj45,Ethernet
+POE150S / TL-POE150S,TP-Link,TP-Link POE150S / TL-POE150S,power-distribution,https://www.tp-link.com/uk/business-networking/omada-accessory-poe-adapter/poe150s/v6.20/,,,,,,,LAN In,input,ethernet,rj45,Network
+POE150S / TL-POE150S,TP-Link,TP-Link POE150S / TL-POE150S,power-distribution,https://www.tp-link.com/uk/business-networking/omada-accessory-poe-adapter/poe150s/v6.20/,,,,,,,PoE Out,output,ethernet,rj45,Network/Power
+POE150S / TL-POE150S,TP-Link,TP-Link POE150S / TL-POE150S,power-distribution,https://www.tp-link.com/uk/business-networking/omada-accessory-poe-adapter/poe150s/v6.20/,,,,,,,AC In,input,power,iec,Power
+GP-H240-125G / GPH240-125G,Ubiquiti,Ubiquiti GP-H240-125G PoE Injector,power-distribution,https://eu.store.ui.com/eu/en/products/poe-24-30w-g-wh,,,,,,,LAN In,input,ethernet,rj45,Network
+GP-H240-125G / GPH240-125G,Ubiquiti,Ubiquiti GP-H240-125G PoE Injector,power-distribution,https://eu.store.ui.com/eu/en/products/poe-24-30w-g-wh,,,,,,,24V PoE Out,output,ethernet,rj45,Network/Power
+GP-H240-125G / GPH240-125G,Ubiquiti,Ubiquiti GP-H240-125G PoE Injector,power-distribution,https://eu.store.ui.com/eu/en/products/poe-24-30w-g-wh,,,,,,,AC In,input,power,iec,Power
+EP-R6,Ubiquiti,Ubiquiti EdgePoint R6,network-router,https://store.ui.com/us/en/products/ep-r6,,,,,,,eth0,bidirectional,ethernet,rj45,Ethernet
+EP-R6,Ubiquiti,Ubiquiti EdgePoint R6,network-router,https://store.ui.com/us/en/products/ep-r6,,,,,,,eth1,bidirectional,ethernet,rj45,Ethernet
+EP-R6,Ubiquiti,Ubiquiti EdgePoint R6,network-router,https://store.ui.com/us/en/products/ep-r6,,,,,,,eth2,bidirectional,ethernet,rj45,Ethernet
+EP-R6,Ubiquiti,Ubiquiti EdgePoint R6,network-router,https://store.ui.com/us/en/products/ep-r6,,,,,,,eth3,bidirectional,ethernet,rj45,Ethernet
+EP-R6,Ubiquiti,Ubiquiti EdgePoint R6,network-router,https://store.ui.com/us/en/products/ep-r6,,,,,,,eth4,bidirectional,ethernet,rj45,Ethernet
+EP-R6,Ubiquiti,Ubiquiti EdgePoint R6,network-router,https://store.ui.com/us/en/products/ep-r6,,,,,,,SFP,bidirectional,fiber,sfp,Fiber
+EP-R6,Ubiquiti,Ubiquiti EdgePoint R6,network-router,https://store.ui.com/us/en/products/ep-r6,,,,,,,24V DC In,input,power,terminal-block,Power
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,DB25 Ch 1,input,analog-audio,db25,DB25
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,DB25 Ch 2,input,analog-audio,db25,DB25
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,DB25 Ch 3,input,analog-audio,db25,DB25
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,DB25 Ch 4,input,analog-audio,db25,DB25
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,DB25 Ch 5,input,analog-audio,db25,DB25
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,DB25 Ch 6,input,analog-audio,db25,DB25
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,DB25 Ch 7,input,analog-audio,db25,DB25
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,DB25 Ch 8,input,analog-audio,db25,DB25
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,RCA Ch 1,output,analog-audio,rca,Fanout
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,RCA Ch 2,output,analog-audio,rca,Fanout
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,RCA Ch 3,output,analog-audio,rca,Fanout
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,RCA Ch 4,output,analog-audio,rca,Fanout
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,RCA Ch 5,output,analog-audio,rca,Fanout
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,RCA Ch 6,output,analog-audio,rca,Fanout
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,RCA Ch 7,output,analog-audio,rca,Fanout
+,Generic,DB25 to RCA Fanout (8 ch),cable-accessory,,,,,,,,RCA Ch 8,output,analog-audio,rca,Fanout
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,DB25 Ch 1,input,analog-audio,db25,DB25
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,DB25 Ch 2,input,analog-audio,db25,DB25
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,DB25 Ch 3,input,analog-audio,db25,DB25
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,DB25 Ch 4,input,analog-audio,db25,DB25
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,DB25 Ch 5,input,analog-audio,db25,DB25
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,DB25 Ch 6,input,analog-audio,db25,DB25
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,DB25 Ch 7,input,analog-audio,db25,DB25
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,DB25 Ch 8,input,analog-audio,db25,DB25
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,XLR-3 Ch 1,output,analog-audio,xlr-3,Fanout
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,XLR-3 Ch 2,output,analog-audio,xlr-3,Fanout
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,XLR-3 Ch 3,output,analog-audio,xlr-3,Fanout
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,XLR-3 Ch 4,output,analog-audio,xlr-3,Fanout
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,XLR-3 Ch 5,output,analog-audio,xlr-3,Fanout
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,XLR-3 Ch 6,output,analog-audio,xlr-3,Fanout
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,XLR-3 Ch 7,output,analog-audio,xlr-3,Fanout
+,Generic,DB25 to XLR Fanout Candidate (8 ch),cable-accessory,,,,,,,,XLR-3 Ch 8,output,analog-audio,xlr-3,Fanout

@@ -1,0 +1,215 @@
+# Sonic Sphere Chateau du Faye System Diagram
+
+Status: draft from available product sources and WhatsApp screenshots, 2026-06-06.
+
+Venue spelling is still worth confirming in file names and labels. Existing local Sonic Sphere notes often use `Fey`; this document uses the user's `Chateau du Faye` wording.
+
+Visual diagram: [sonic-sphere-chateau-du-faye-visual-system-diagram.svg](sonic-sphere-chateau-du-faye-visual-system-diagram.svg)
+
+Local reference pack: [references/README.md](references/README.md)
+
+## Executive Summary
+
+The rack shown in the screenshots is almost certainly built around a TASCAM ML-32D 32-channel analog/Dante converter. The likely playback path is:
+
+`MacBook Air M2 / Dante source -> USB-C multiport adapter Ethernet -> TP-Link 5-port switch -> TASCAM ML-32D -> DB25 analog output fanouts -> Dayton MA1240a top amp + two Dayton MA1260 lower amps -> 30x Focal 100 OD8 passive outdoor speakers`.
+
+The powered subwoofer is a Devine Onyx 18SXA. The TASCAM feeds one RCA channel into a Devine DI-003 box, and the DI-003 output goes to the subwoofer left-channel input. The cleanest 30.1 mapping still reserves ML-32D analog output 31 for the sub line input and leaves analog output 32 spare, but the exact TASCAM source output should be verified at the rack.
+
+The Bluetooth-Dante adapter is confirmed as an Audinate Dante AVIO Bluetooth Adapter (`ADP-BT-AU-2X1`). It connects to the Dante switch by RJ45 and needs PoE from the switch or from a PoE injector. The TP-Link / Omada injector is now identified as `TL-POE150S` / `POE150S`. A Ubiquiti `GPH240-125G` one-port injector and a Ubiquiti EdgePoint R6 (`EP-R6`) are also present; their exact roles in the active Dante/site network still need rack tracing.
+
+## Confirmed And Probable Components
+
+| Component | Status | Notes |
+| --- | --- | --- |
+| TASCAM ML-32D | Confirmed from screenshot and product/manual match | 32 analog line inputs plus 32 analog line outputs over eight DB25 connectors, Dante Primary/Secondary over RJ45 gigabit Ethernet. |
+| Dayton Audio MA1240a + 2x Dayton Audio MA1260 | Confirmed from user rack note | Amp stack: the MA1240a is the top unit; the bottom two units are MA1260 amplifiers. Stack provides the multichannel speaker amplification path for 30 speakers plus spare channels. |
+| 30x Focal 100 OD8 outdoor speakers | Probable | User described Focal "100 OD8"; product is an 8 ohm passive outdoor loudspeaker with 20-150 W recommended amp power. Confirm exact model label on speaker or purchase record. |
+| Devine Onyx 18SXA powered subwoofer | Confirmed from user rack note | Fed from the Devine DI-003 output into the subwoofer left-channel input. Current logical diagram keeps the sub/LFE feed on the TASCAM output 31 path pending physical trace. |
+| Devine DI-003 direct box | Confirmed from user rack note | Accepts one RCA channel from the TASCAM path and outputs to the Devine Onyx 18SXA subwoofer left-channel input. |
+| TP-Link 5-port Ethernet switch | Confirmed from user rack note | Four ports are currently occupied. Dante requires a gigabit Ethernet switch for this setup. If the Bluetooth-Dante adapter is Dante AVIO, the switch must provide PoE or the adapter needs a PoE injector. |
+| TP-Link TL-POE150S / Omada POE150S PoE injector | Confirmed model, connection unknown | One-port IEEE 802.3af PoE injector with gigabit passthrough and 15.4 W max 48 VDC output. What it powers is not yet confirmed. |
+| Ubiquiti 1-port PoE injector `GPH240-125G` | Confirmed present, connection unknown | One-port PoE injector present in the rack/network hardware. What it is plugged into is not yet confirmed. |
+| Ubiquiti EdgePoint R6 (`EP-R6`) | Confirmed present, role unknown | Outdoor EdgeMAX control point/router with 5x gigabit RJ45 ports and 1x 1 Gbps SFP port. Can use 24 V passive PoE or DC terminal input and can provide 24 V passive PoE output on `eth0`-`eth4`; verify whether it is in the active Dante path or a separate site-network branch. |
+| USB-C multiport adapter | Confirmed from user rack note | Adapter has 3x USB-A, 1x Ethernet, 1x HDMI, and 1x USB-C power input. Provides the MacBook wired Ethernet connection into the Dante switch. |
+| MacBook Air M2 (2022) | Confirmed from user screenshot | Apple M2, 8 GB memory, macOS Tahoe 26.5. Runs Dante Controller and either Dante Virtual Soundcard or the playback/rendering app. Needs wired Ethernet into the Dante switch through the USB-C adapter. |
+| Dante AVIO Bluetooth adapter | Confirmed from user rack note | Audinate Dante AVIO Bluetooth Adapter (`ADP-BT-AU-2X1`), a network Dante endpoint with RJ45 + PoE. Confirm Dante Controller device name. |
+| DB25 to RCA breakout fanouts | Probable for amp feeds | Physically plausible because ML-32D analog outputs are DB25 balanced line outputs and Dayton amp inputs are RCA line inputs. Wiring must be correct for balanced-to-unbalanced use. |
+| DB25 to XLR breakout fanouts | Partly probable, cable direction uncertain | ML-32D analog inputs are DB25 balanced line inputs. The screenshot link shows Hosa `DTM-803`, which is DB25 to XLR male and is typically output-style. For XLR line sources into ML-32D inputs, a DB25 to XLR female fanout such as `DTF-803` is more likely unless the source side has female XLR outputs or adapters. |
+
+## Network / Dante Layer
+
+```text
+                         Bluetooth
+                    phone / tablet / PC
+                             ~~~
+                              |
+                              v
+                +-----------------------------+
+                | Bluetooth-Dante adapter     |
+                | Dante AVIO Bluetooth        |
+                | RJ45 Dante + PoE            |
+                +---------------+-------------+
+                                |
+                                | Cat5e+ STP, Dante, PoE if AVIO
+                                v
++-------------------+     +-----------------------------+     +--------------------+
+| MacBook Air M2    |     | TP-Link 5-port switch        |     | TASCAM ML-32D      |
+| DVS / app /       +---->| 4 ports currently occupied   +---->| PRIMARY RJ45       |
+| Dante Controller  |     | standard Ethernet            |     | Dante network      |
+| via USB-C adapter |     |                             |     |                    |
++-------------------+     +-----------------------------+     +--------------------+
+
+MacBook adapter:
+- USB-C multiport adapter with 3x USB-A, 1x Ethernet, 1x HDMI, and 1x USB-C power input.
+- Ethernet from this adapter is the wired MacBook path into the Dante switch.
+
+Additional network hardware to trace:
+- TP-Link TL-POE150S / Omada POE150S: one-port IEEE 802.3af PoE injector; identify the powered device.
+- Ubiquiti GPH240-125G: one-port 24 V PoE injector; identify the powered device.
+- Ubiquiti EdgePoint R6 (`EP-R6`): outdoor EdgeMAX router/control point; verify whether it is upstream of the Dante switch, substituting for a switch/router, or isolated from the Dante audio network.
+
+TASCAM ML-32D SECONDARY RJ45:
+- Leave disconnected in a simple single-switch Dante network, or
+- Use only for Dante redundancy with a completely separate secondary switch/network.
+- Do not connect Primary and Secondary to the same redundant network.
+```
+
+## Audio Layer
+
+```text
+Primary multichannel playback path
+----------------------------------
+
+MacBook Air M2 / Dante transmit channels
+        |
+        | USB-C Ethernet adapter -> TP-Link switch -> Dante subscriptions in Dante Controller
+        v
+TASCAM ML-32D Dante receive channels 1-30/31
+        |
+        | D/A conversion
+        v
+TASCAM ML-32D analog outputs, DB25 groups of 8
+        |
+        | DB25 -> RCA/balanced-to-unbalanced fanouts, exact cabling TBD
+        v
+Dayton MA1240a top amp + two Dayton MA1260 lower amps, RCA line inputs
+        |
+        | amplified speaker outputs
+        v
+30x Focal 100 OD8 passive outdoor speakers
+
+
+Confirmed subwoofer model, source patch still to verify
+-------------------------------------------------------
+
+MacBook / renderer LFE or sub channel
+        |
+        | Dante channel 31, if using the local 30.1 convention
+        v
+TASCAM ML-32D analog output 31
+        |
+        | one RCA channel
+        v
+Devine DI-003 direct box
+        |
+        | DI output
+        v
+Devine Onyx 18SXA left-channel input
+```
+
+## Proposed Logical Channel Assignment
+
+This is a clean logical map, not proof of the actual on-site patching.
+
+| Sonic Sphere channel | TASCAM ML-32D analog out | Amp | Amp channel | Destination |
+| --- | ---: | --- | ---: | --- |
+| Speaker 1-12 | 1-12 | MA1240a top unit | 1-12 | Focal 100 OD8 speakers 1-12 |
+| Speaker 13-24 | 13-24 | MA1260 middle unit | 1-12 | Focal 100 OD8 speakers 13-24 |
+| Speaker 25-30 | 25-30 | MA1260 bottom unit | 1-6 | Focal 100 OD8 speakers 25-30 |
+| Sub / LFE | 31 | Devine DI-003 -> Devine Onyx 18SXA | Left input | TASCAM RCA channel into DI-003, then DI output to sub left channel |
+| Spare | 32 | n/a | n/a | Spare ML-32D output |
+| Spare amp channels | n/a | MA1260 bottom unit | 7-12 | Unused or future expansion |
+
+Physical DB25 grouping is by blocks of eight:
+
+| ML-32D output connector | Channels |
+| --- | --- |
+| Analog outputs 1-8 | 1-8 |
+| Analog outputs 9-16 | 9-16 |
+| Analog outputs 17-24 | 17-24 |
+| Analog outputs 25-32 | 25-32 |
+
+Because the amp channels are grouped in twelves and the TASCAM connectors are grouped in eights, at least one fanout block likely crosses an amplifier boundary unless there is an intermediate patch panel or custom loom.
+
+## Analog Input Path, If Used
+
+```text
+External balanced line-level source
+        |
+        | XLR fanout, connector gender must be checked
+        v
+TASCAM ML-32D analog input DB25 connector
+        |
+        | A/D conversion
+        v
+Dante transmit channels on network
+        |
+        v
+MacBook / recorder / other Dante receiver
+```
+
+Important: the ML-32D analog inputs are line-level inputs, not microphone preamps. Any microphone-level source needs a mic preamp or mixer before the ML-32D.
+
+## Field Verification Checklist
+
+1. Photograph the rear of the TASCAM and confirm the exact model text is `ML-32D`.
+2. Confirm which ML-32D RJ45 is patched: Primary should go to the switch in the simple network.
+3. Photograph the switch model and confirm whether any ports are PoE.
+4. Trace the TP-Link TL-POE150S / Omada POE150S injector and record what powered device is on its PoE output.
+5. Trace the Ubiquiti GPH240-125G injector and record what powered device is on its PoE output.
+6. Trace the Ubiquiti EdgePoint R6 (`EP-R6`) ports and power input; confirm whether it is upstream of the Dante switch, part of the Dante path, or separate site-network hardware.
+7. Confirm the Dante AVIO Bluetooth device name in Dante Controller.
+8. Trace the Devine Onyx 18SXA sub cable: source device/channel 31 to the Devine DI-003 RCA input, then DI-003 output to the subwoofer left-channel input.
+9. Read labels on all DB25 fanouts. Record exact model numbers: `DTM`, `DTF`, `DTP`, custom, DB25-to-RCA, etc.
+10. Confirm whether the DB25-to-XLR cable is plugged into ML-32D analog inputs or outputs.
+11. In Dante Controller, export or screenshot subscriptions: MacBook/DVS/Bluetooth transmitters to ML-32D receive channels.
+12. Confirm amp input switches are set to `LINE IN` for discrete 30-channel playback, not `BUS 1` or `BUS 2`.
+13. Label MA1240a / MA1260 speaker output terminals by Sonic Sphere speaker number.
+
+## Rear-Panel / Diagram Image Sources
+
+| Component | Best image/document target | Why it is useful |
+| --- | --- | --- |
+| TASCAM ML-32D | Owner's manual, `Rear panel` page: https://www.tascam.eu/en/docs/ML-32D_ML-16D_Manual_multi.pdf | Black-on-white rear-panel drawing with Primary/Secondary Dante, DB25 input/output groups, and reference-level switches. |
+| TASCAM DB25 pinout | TASCAM DB25 pinout PDF: https://tascam.jp/downloads/tascam/305/TECH_DB25_Pinout.pdf | Single-page black-on-white pinout for TASCAM/AES59 balanced DB25 wiring. Direct curl download returned 404 during the reference pass, so this remains an online source. |
+| Dayton Audio MA1240a | User manual, `REAR PANEL` page: https://www.daytonaudio.com/images/resources/300-815--dayton-audio-ma1240a-user-manual.pdf | Rear-panel line drawing with bus RCA I/O, individual RCA inputs, gain controls, bridge switches, Phoenix speaker outputs, and IEC power. |
+| Dayton Audio MA1260 | User manual, `REAR PANEL` page: https://www.daytonaudio.com/images/resources/300-8150-dayton-audio-ma1260-user-manual-revision.pdf | Official rear-panel/manual source for the two lower amplifiers. |
+| Focal 100 OD8 | Outdoor 100 Series manual: https://dam.focal-naim.com/m/60d173e599e9870e/original/Notice_100Series_Outdoor-pdf.pdf | Installation drawings and terminal diagrams for the 100 OD6/100 OD8 outdoor speakers. |
+| Focal 100 OD8 product/CAD files | Product page downloads: https://www.focal.com/products/100-od-8 | Official images plus STEP, DWG, DXF, and SketchUp files if a clean line-art component drawing is needed. |
+| Dante AVIO Bluetooth adapter | Current Dante AVIO Bluetooth datasheet: https://www.getdante.com/wp-content/uploads/2024/02/dante_avio-bluetooth_0224-en.pdf | Official product diagram/spec sheet; confirms RJ45-only connector, PoE, 2x1 audio channels, 48 kHz, and part number `ADP-BT-AU-2X1`. |
+| TP-Link 5-port switch | Candidate references tracked in [references/README.md](references/README.md) | User confirmed brand and port count, but not the exact model. Do not select a rear-panel diagram until the model is known; PoE capability matters for the Bluetooth-Dante adapter. |
+| TP-Link TL-POE150S / Omada POE150S PoE injector | Official Omada POE150S page: https://www.tp-link.com/uk/business-networking/omada-accessory-poe-adapter/poe150s/v6.20/; local references tracked in [references/README.md](references/README.md) | User confirmed this one-port PoE injector model is present; trace what it powers. |
+| Ubiquiti 1-port PoE injector `GPH240-125G` | Ubiquiti product/compliance references tracked in [references/README.md](references/README.md) | User confirmed this one-port PoE injector is present, but not what it powers. |
+| Ubiquiti EdgePoint R6 (`EP-R6`) | Ubiquiti Store page: https://store.ui.com/us/en/products/ep-r6 | User confirmed this network component is present. Useful for front/rear/port reference and for tracing whether it is part of the active Dante/site network. |
+| USB-C multiport adapter | Need exact adapter model | User confirmed port layout: 3x USB-A, 1x Ethernet, 1x HDMI, and 1x USB-C power input. Exact product art depends on model. |
+| Devine DI-003 direct box | Bax product/spec page: https://www.bax-shop.co.uk/di-boxes/devine-di-003-di-box | User confirmed the sub path uses one RCA channel from TASCAM into this box, then output to the subwoofer left-channel input. No exact DI-003 manual was found in this pass. |
+| Devine Onyx 18SXA powered subwoofer | Bax product page: https://www.bax-shop.nl/actieve-subwoofers/devine-onyx-18sxa-actieve-subwoofer; manual sources tracked in [references/README.md](references/README.md) | User confirmed sub model and single-cable left-channel input. Local manual PDF is available under `references/manuals/`. |
+
+## Source Notes
+
+- TASCAM states the ML-32D has 32 analog line inputs and 32 analog line outputs using D-Sub connectors, plus Dante Primary/Secondary connectors.
+- TASCAM's manual says the Primary connector should be used for the Dante network, and the unit is not compatible with 100 Mbps switching hubs.
+- User rack note identifies the amplifier stack as one Dayton Audio MA1240a on top and two Dayton Audio MA1260 units below it.
+- Dayton Audio states the MA1240a has 12 channels, individual RCA line inputs, bus inputs/outputs, Phoenix-style speaker outputs, and 40 W RMS/channel at 8 ohms.
+- Focal states the 100 OD8 is an 8 ohm passive outdoor loudspeaker with IP66 certification and recommended amp power of 20-150 W.
+- Audinate states the Dante AVIO Bluetooth adapter is RJ45, PoE powered, 48 kHz, 24-bit, and `ADP-BT-AU-2X1`.
+- User rack note confirms the Dante AVIO Bluetooth adapter is present.
+- User rack note identifies the network switch as a TP-Link 5-port switch with four occupied ports.
+- User update identifies the TP-Link / Omada PoE injector as `TL-POE150S` / `POE150S`, with unknown powered device.
+- TP-Link states the POE150S / TL-POE150S is IEEE 802.3af compliant, supports gigabit speed, and provides 15.4 W max 48 VDC output.
+- User rack note identifies Ubiquiti `GPH240-125G` as a one-port PoE injector, with unknown connected device.
+- User update identifies a Ubiquiti EdgePoint R6 (`EP-R6`) as present.
+- Ubiquiti states the EdgePoint R6 has five 10/100/1000 RJ45 ports, one 1 Gbps SFP port, 24 V passive PoE/DC input options, and 24 V passive PoE output on `eth0`-`eth4`.
+- User screenshot identifies the computer as a MacBook Air M2 (2022), Apple M2, 8 GB memory, running macOS Tahoe 26.5.
+- User rack note identifies the subwoofer as a Devine Onyx 18SXA fed through a Devine DI-003 box: TASCAM RCA into DI-003, then output to the subwoofer left-channel input.

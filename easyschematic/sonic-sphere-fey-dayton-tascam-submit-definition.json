@@ -1,0 +1,1343 @@
+{
+  "format": "easyschematic-device-submit-batch",
+  "generatedAt": "2026-06-08",
+  "submitPage": "https://devices.easyschematic.live/submit",
+  "submitApiEndpoint": "https://api.easyschematic.live/templates",
+  "submitMethod": "POST one object from templates[] at a time after EasySchematic authentication",
+  "submitRulesObserved": {
+    "requiredFields": [
+      "label",
+      "deviceType",
+      "category",
+      "manufacturer",
+      "modelNumber",
+      "referenceUrl"
+    ],
+    "genericException": "modelNumber and referenceUrl are only optional when manufacturer is Generic",
+    "referenceUrlRule": "Must start with http:// or https://",
+    "validationWarnings": [
+      "Other connector type should be avoided when a specific connector exists",
+      "Custom signal type should be avoided when a standard signal type exists",
+      "Devices with no ports are allowed only after warning"
+    ],
+    "physicalNetworkGuidance": "Physical Dante/network ports keep their real connector type such as rj45; logical virtual audio channels should use connectorType none if modeled separately."
+  },
+  "allowedValuesUsed": {
+    "signalTypes": [
+      "analog-audio",
+      "control-voltage",
+      "dante",
+      "power",
+      "speaker-level"
+    ],
+    "connectorTypes": [
+      "db25",
+      "iec",
+      "phoenix",
+      "rca",
+      "rj45",
+      "trs-eighth"
+    ],
+    "directions": [
+      "input",
+      "output",
+      "bidirectional"
+    ]
+  },
+  "localSources": [
+    "references/manuals/dayton-audio-ma1240a-user-manual.pdf",
+    "references/manuals/dayton-audio-ma1260-user-manual.pdf",
+    "references/manuals/tascam-ml-32d-ml-16d-owners-manual.pdf",
+    "references/manuals/tascam-ml-32d-ml-16d-outline.pdf",
+    "references/extracted/tascam-ml-32d/README.md",
+    "easyschematic/sonic-sphere-fey-device-library-v2.json"
+  ],
+  "templates": [
+    {
+      "label": "TASCAM ML-32D",
+      "deviceType": "audio-interface",
+      "category": "Audio I/O",
+      "manufacturer": "Tascam",
+      "modelNumber": "ML-32D",
+      "referenceUrl": "https://tascam.jp/int/product/ml-32d/spec",
+      "searchTerms": [
+        "tascam",
+        "ml-32d",
+        "ml32d",
+        "32 channel",
+        "32x32",
+        "analog dante converter",
+        "dante",
+        "db25",
+        "d-sub",
+        "audio interface",
+        "audio i/o"
+      ],
+      "ports": [
+        {
+          "id": "dante-primary",
+          "label": "PRIMARY Dante",
+          "signalType": "dante",
+          "direction": "bidirectional",
+          "connectorType": "rj45",
+          "section": "Dante",
+          "notes": "Primary Dante network port; use this for a simple non-redundant Dante network. Requires 1000BASE-T with Cat5e or faster STP cable."
+        },
+        {
+          "id": "dante-secondary",
+          "label": "SECONDARY Dante",
+          "signalType": "dante",
+          "direction": "bidirectional",
+          "connectorType": "rj45",
+          "section": "Dante",
+          "notes": "Secondary Dante port for redundant Dante networks; do not connect to the same switch as PRIMARY in redundant mode."
+        },
+        {
+          "id": "power-iec",
+          "label": "AC In",
+          "signalType": "power",
+          "direction": "input",
+          "connectorType": "iec",
+          "section": "Power",
+          "notes": "IEC AC inlet."
+        },
+        {
+          "id": "ain-01",
+          "label": "Analog In 01",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 1-8",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-02",
+          "label": "Analog In 02",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 1-8",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-03",
+          "label": "Analog In 03",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 1-8",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-04",
+          "label": "Analog In 04",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 1-8",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-05",
+          "label": "Analog In 05",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 1-8",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-06",
+          "label": "Analog In 06",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 1-8",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-07",
+          "label": "Analog In 07",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 1-8",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-08",
+          "label": "Analog In 08",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 1-8",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-09",
+          "label": "Analog In 09",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 9-16",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-10",
+          "label": "Analog In 10",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 9-16",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-11",
+          "label": "Analog In 11",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 9-16",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-12",
+          "label": "Analog In 12",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 9-16",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-13",
+          "label": "Analog In 13",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 9-16",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-14",
+          "label": "Analog In 14",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 9-16",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-15",
+          "label": "Analog In 15",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 9-16",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-16",
+          "label": "Analog In 16",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 9-16",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-17",
+          "label": "Analog In 17",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 17-24",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-18",
+          "label": "Analog In 18",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 17-24",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-19",
+          "label": "Analog In 19",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 17-24",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-20",
+          "label": "Analog In 20",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 17-24",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-21",
+          "label": "Analog In 21",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 17-24",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-22",
+          "label": "Analog In 22",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 17-24",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-23",
+          "label": "Analog In 23",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 17-24",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-24",
+          "label": "Analog In 24",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 17-24",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-25",
+          "label": "Analog In 25",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 25-32",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-26",
+          "label": "Analog In 26",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 25-32",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-27",
+          "label": "Analog In 27",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 25-32",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-28",
+          "label": "Analog In 28",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 25-32",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-29",
+          "label": "Analog In 29",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 25-32",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-30",
+          "label": "Analog In 30",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 25-32",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-31",
+          "label": "Analog In 31",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 25-32",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "ain-32",
+          "label": "Analog In 32",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "db25",
+          "section": "Analog Inputs 25-32",
+          "notes": "Balanced analog line input carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-01",
+          "label": "Analog Out 01",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 1-8",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-02",
+          "label": "Analog Out 02",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 1-8",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-03",
+          "label": "Analog Out 03",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 1-8",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-04",
+          "label": "Analog Out 04",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 1-8",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-05",
+          "label": "Analog Out 05",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 1-8",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-06",
+          "label": "Analog Out 06",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 1-8",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-07",
+          "label": "Analog Out 07",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 1-8",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-08",
+          "label": "Analog Out 08",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 1-8",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-09",
+          "label": "Analog Out 09",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 9-16",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-10",
+          "label": "Analog Out 10",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 9-16",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-11",
+          "label": "Analog Out 11",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 9-16",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-12",
+          "label": "Analog Out 12",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 9-16",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-13",
+          "label": "Analog Out 13",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 9-16",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-14",
+          "label": "Analog Out 14",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 9-16",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-15",
+          "label": "Analog Out 15",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 9-16",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-16",
+          "label": "Analog Out 16",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 9-16",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-17",
+          "label": "Analog Out 17",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 17-24",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-18",
+          "label": "Analog Out 18",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 17-24",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-19",
+          "label": "Analog Out 19",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 17-24",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-20",
+          "label": "Analog Out 20",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 17-24",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-21",
+          "label": "Analog Out 21",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 17-24",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-22",
+          "label": "Analog Out 22",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 17-24",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-23",
+          "label": "Analog Out 23",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 17-24",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-24",
+          "label": "Analog Out 24",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 17-24",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-25",
+          "label": "Analog Out 25",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 25-32",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-26",
+          "label": "Analog Out 26",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 25-32",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-27",
+          "label": "Analog Out 27",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 25-32",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-28",
+          "label": "Analog Out 28",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 25-32",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-29",
+          "label": "Analog Out 29",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 25-32",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-30",
+          "label": "Analog Out 30",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 25-32",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-31",
+          "label": "Analog Out 31",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 25-32",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        },
+        {
+          "id": "aout-32",
+          "label": "Analog Out 32",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "db25",
+          "section": "Analog Outputs 25-32",
+          "notes": "Balanced analog line output carried on D-sub 25-pin female connector group."
+        }
+      ],
+      "powerDrawW": 22,
+      "voltage": "AC 100-240V, 50/60Hz",
+      "heightMm": 45,
+      "widthMm": 483,
+      "depthMm": 303.8,
+      "weightKg": 3.5,
+      "submitterNote": "Built from the local TASCAM ML-32D/ML-16D owner manual and outline assets plus the official TASCAM ML-32D spec page. The template models 32 analog line inputs and 32 analog line outputs over DB25 connector groups, plus PRIMARY/SECONDARY Dante RJ45 and IEC AC. Logical Dante channels are not expanded as separate ports; the physical Dante network ports remain RJ45."
+    },
+    {
+      "label": "Dayton Audio MA1240a",
+      "deviceType": "amplifier",
+      "category": "Amplifiers",
+      "manufacturer": "Dayton Audio",
+      "modelNumber": "MA1240a",
+      "referenceUrl": "https://daytonaudio.com/product/1017/ma1240a-multi-zone-12-channel-amplifier",
+      "searchTerms": [
+        "dayton audio",
+        "ma1240a",
+        "12 channel",
+        "6 stereo zones",
+        "multi-zone amplifier",
+        "class ab",
+        "rca",
+        "phoenix",
+        "bus inputs",
+        "speaker outputs"
+      ],
+      "ports": [
+        {
+          "id": "power-iec",
+          "label": "AC In",
+          "signalType": "power",
+          "direction": "input",
+          "connectorType": "iec",
+          "section": "Power"
+        },
+        {
+          "id": "bus1-in-l",
+          "label": "BUS 1 In L",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "BUS Line Inputs"
+        },
+        {
+          "id": "bus1-in-r",
+          "label": "BUS 1 In R",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "BUS Line Inputs"
+        },
+        {
+          "id": "bus2-in-l",
+          "label": "BUS 2 In L",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "BUS Line Inputs"
+        },
+        {
+          "id": "bus2-in-r",
+          "label": "BUS 2 In R",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "BUS Line Inputs"
+        },
+        {
+          "id": "bus1-out-l",
+          "label": "BUS 1 Out L",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "rca",
+          "section": "BUS Line Outputs",
+          "notes": "Direct feed-through from BUS 1 input for downstream amplifiers."
+        },
+        {
+          "id": "bus1-out-r",
+          "label": "BUS 1 Out R",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "rca",
+          "section": "BUS Line Outputs",
+          "notes": "Direct feed-through from BUS 1 input for downstream amplifiers."
+        },
+        {
+          "id": "bus2-out-l",
+          "label": "BUS 2 Out L",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "rca",
+          "section": "BUS Line Outputs",
+          "notes": "Direct feed-through from BUS 2 input for downstream amplifiers."
+        },
+        {
+          "id": "bus2-out-r",
+          "label": "BUS 2 Out R",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "rca",
+          "section": "BUS Line Outputs",
+          "notes": "Direct feed-through from BUS 2 input for downstream amplifiers."
+        },
+        {
+          "id": "trigger-in",
+          "label": "Trigger In",
+          "signalType": "control-voltage",
+          "direction": "input",
+          "connectorType": "trs-eighth",
+          "section": "Trigger",
+          "notes": "3-30V AC/DC trigger input on 3.5 mm mini-plug jack."
+        },
+        {
+          "id": "trigger-out",
+          "label": "Trigger Out",
+          "signalType": "control-voltage",
+          "direction": "output",
+          "connectorType": "trs-eighth",
+          "section": "Trigger",
+          "notes": "12V DC trigger output, 500 mA max."
+        },
+        {
+          "id": "line-in-01",
+          "label": "Line In Ch 01",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-02",
+          "label": "Line In Ch 02",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-03",
+          "label": "Line In Ch 03",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-04",
+          "label": "Line In Ch 04",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-05",
+          "label": "Line In Ch 05",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-06",
+          "label": "Line In Ch 06",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-07",
+          "label": "Line In Ch 07",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-08",
+          "label": "Line In Ch 08",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-09",
+          "label": "Line In Ch 09",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-10",
+          "label": "Line In Ch 10",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-11",
+          "label": "Line In Ch 11",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-12",
+          "label": "Line In Ch 12",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "speaker-out-01",
+          "label": "Speaker Out Ch 01",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-02",
+          "label": "Speaker Out Ch 02",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-03",
+          "label": "Speaker Out Ch 03",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-04",
+          "label": "Speaker Out Ch 04",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-05",
+          "label": "Speaker Out Ch 05",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-06",
+          "label": "Speaker Out Ch 06",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-07",
+          "label": "Speaker Out Ch 07",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-08",
+          "label": "Speaker Out Ch 08",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-09",
+          "label": "Speaker Out Ch 09",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-10",
+          "label": "Speaker Out Ch 10",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-11",
+          "label": "Speaker Out Ch 11",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-12",
+          "label": "Speaker Out Ch 12",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        }
+      ],
+      "voltage": "120/230 VAC, 60/50 Hz",
+      "heightMm": 101.6,
+      "widthMm": 424.2,
+      "depthMm": 361.9,
+      "weightKg": 15,
+      "submitterNote": "Built from the local Dayton Audio MA1240a user manual and official product page. Manual facts used: 12 channels / 6 stereo zones, two stereo BUS line inputs with direct BUS outputs, 12 individual RCA line inputs, Phoenix-style speaker output terminals, 3.5 mm trigger input/output, IEC AC, 40 W per channel RMS at 8 ohms, 80 W bridged at 8 ohms. PowerDrawW is intentionally omitted because the manual gives rated amplifier output and standby draw, not continuous mains draw."
+    },
+    {
+      "label": "Dayton Audio MA1260",
+      "deviceType": "amplifier",
+      "category": "Amplifiers",
+      "manufacturer": "Dayton Audio",
+      "modelNumber": "MA1260",
+      "referenceUrl": "https://www.daytonaudio.com/product/1202/ma1260-multi-zone-12-channel-amplifier-60wpc",
+      "searchTerms": [
+        "dayton audio",
+        "ma1260",
+        "12 channel",
+        "6 stereo zones",
+        "multi-zone amplifier",
+        "class d",
+        "60wpc",
+        "rca",
+        "phoenix",
+        "bus inputs",
+        "speaker outputs"
+      ],
+      "ports": [
+        {
+          "id": "power-iec",
+          "label": "AC In",
+          "signalType": "power",
+          "direction": "input",
+          "connectorType": "iec",
+          "section": "Power"
+        },
+        {
+          "id": "bus1-in-l",
+          "label": "BUS 1 In L",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "BUS Line Inputs"
+        },
+        {
+          "id": "bus1-in-r",
+          "label": "BUS 1 In R",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "BUS Line Inputs"
+        },
+        {
+          "id": "bus2-in-l",
+          "label": "BUS 2 In L",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "BUS Line Inputs"
+        },
+        {
+          "id": "bus2-in-r",
+          "label": "BUS 2 In R",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "BUS Line Inputs"
+        },
+        {
+          "id": "bus1-out-l",
+          "label": "BUS 1 Out L",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "rca",
+          "section": "BUS Line Outputs",
+          "notes": "Direct feed-through from BUS 1 input for downstream amplifiers."
+        },
+        {
+          "id": "bus1-out-r",
+          "label": "BUS 1 Out R",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "rca",
+          "section": "BUS Line Outputs",
+          "notes": "Direct feed-through from BUS 1 input for downstream amplifiers."
+        },
+        {
+          "id": "bus2-out-l",
+          "label": "BUS 2 Out L",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "rca",
+          "section": "BUS Line Outputs",
+          "notes": "Direct feed-through from BUS 2 input for downstream amplifiers."
+        },
+        {
+          "id": "bus2-out-r",
+          "label": "BUS 2 Out R",
+          "signalType": "analog-audio",
+          "direction": "output",
+          "connectorType": "rca",
+          "section": "BUS Line Outputs",
+          "notes": "Direct feed-through from BUS 2 input for downstream amplifiers."
+        },
+        {
+          "id": "trigger-in",
+          "label": "Trigger In",
+          "signalType": "control-voltage",
+          "direction": "input",
+          "connectorType": "trs-eighth",
+          "section": "Trigger",
+          "notes": "3-30V AC/DC trigger input on 3.5 mm mini-plug jack."
+        },
+        {
+          "id": "trigger-out",
+          "label": "Trigger Out",
+          "signalType": "control-voltage",
+          "direction": "output",
+          "connectorType": "trs-eighth",
+          "section": "Trigger",
+          "notes": "12V DC trigger output, 500 mA max."
+        },
+        {
+          "id": "line-in-01",
+          "label": "Line In Ch 01",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-02",
+          "label": "Line In Ch 02",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-03",
+          "label": "Line In Ch 03",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-04",
+          "label": "Line In Ch 04",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-05",
+          "label": "Line In Ch 05",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-06",
+          "label": "Line In Ch 06",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-07",
+          "label": "Line In Ch 07",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-08",
+          "label": "Line In Ch 08",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-09",
+          "label": "Line In Ch 09",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-10",
+          "label": "Line In Ch 10",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-11",
+          "label": "Line In Ch 11",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "line-in-12",
+          "label": "Line In Ch 12",
+          "signalType": "analog-audio",
+          "direction": "input",
+          "connectorType": "rca",
+          "section": "Individual Channel Inputs"
+        },
+        {
+          "id": "speaker-out-01",
+          "label": "Speaker Out Ch 01",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-02",
+          "label": "Speaker Out Ch 02",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-03",
+          "label": "Speaker Out Ch 03",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-04",
+          "label": "Speaker Out Ch 04",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-05",
+          "label": "Speaker Out Ch 05",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-06",
+          "label": "Speaker Out Ch 06",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-07",
+          "label": "Speaker Out Ch 07",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-08",
+          "label": "Speaker Out Ch 08",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-09",
+          "label": "Speaker Out Ch 09",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-10",
+          "label": "Speaker Out Ch 10",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-11",
+          "label": "Speaker Out Ch 11",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        },
+        {
+          "id": "speaker-out-12",
+          "label": "Speaker Out Ch 12",
+          "signalType": "speaker-level",
+          "direction": "output",
+          "connectorType": "phoenix",
+          "section": "Speaker Outputs",
+          "notes": "Phoenix-style speaker connector; observe polarity and bridged-mode wiring."
+        }
+      ],
+      "voltage": "115/230 VAC, 50/60 Hz",
+      "heightMm": 101.6,
+      "widthMm": 424.2,
+      "depthMm": 361.9,
+      "weightKg": 18.1,
+      "submitterNote": "Built from the local Dayton Audio MA1260 user manual and official product page. Manual facts used: 12 channels / 6 stereo zones, two stereo BUS line inputs with direct BUS outputs, 12 individual RCA line inputs, Phoenix-style speaker output terminals, 3.5 mm trigger input/output, IEC AC, 45 W per channel at 8 ohms, 80 W per channel at 4 ohms, 120 W bridged at 8 ohms. PowerDrawW is intentionally omitted because the manual gives rated amplifier output and standby draw, not continuous mains draw."
+    }
+  ]
+}

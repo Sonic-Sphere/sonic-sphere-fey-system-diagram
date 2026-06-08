@@ -1,0 +1,98 @@
+Source Device,Source Port,Destination Device,Destination Port,Signal Type,Source Room,Destination Room,Notes,Status
+MacBook Air M2 (2022),USB-C / Thunderbolt,USB-C Multiport Adapter,USB-C Host,thunderbolt,,,USB-C adapter,confirmed
+USB-C Multiport Adapter,Ethernet,TP-Link 5-Port Ethernet Switch (model TBD),Port 1,dante,,,DVS Dante over Ethernet,confirmed
+TP-Link 5-Port Ethernet Switch (model TBD),Port 2,TASCAM ML-32D,PRIMARY Dante,dante,,,Dante Primary,confirmed
+Dante AVIO Bluetooth ADP-BT-AU-2X1,Dante RJ45 + PoE,TP-Link 5-Port Ethernet Switch (model TBD),Port 3,dante,,,PoE source may be switch or injector; verify physical power path.,confirmed
+TASCAM ML-32D,Analog Out 01,DB25 to RCA Fanout 1 (Out 1-8),DB25 Ch 1,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 1 (Out 1-8),RCA Ch 1,Dayton MA1260 Bottom Amp (Ch 1-12),Line In Ch 01,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Bottom Amp (Ch 1-12),Speaker Out Ch 01,Focal 100 OD8 Speaker 01,Speaker Input,speaker-level,,,Sonic Sphere speaker 01; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 02,DB25 to RCA Fanout 1 (Out 1-8),DB25 Ch 2,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 1 (Out 1-8),RCA Ch 2,Dayton MA1260 Bottom Amp (Ch 1-12),Line In Ch 02,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Bottom Amp (Ch 1-12),Speaker Out Ch 02,Focal 100 OD8 Speaker 02,Speaker Input,speaker-level,,,Sonic Sphere speaker 02; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 03,DB25 to RCA Fanout 1 (Out 1-8),DB25 Ch 3,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 1 (Out 1-8),RCA Ch 3,Dayton MA1260 Bottom Amp (Ch 1-12),Line In Ch 03,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Bottom Amp (Ch 1-12),Speaker Out Ch 03,Focal 100 OD8 Speaker 03,Speaker Input,speaker-level,,,Sonic Sphere speaker 03; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 04,DB25 to RCA Fanout 1 (Out 1-8),DB25 Ch 4,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 1 (Out 1-8),RCA Ch 4,Dayton MA1260 Bottom Amp (Ch 1-12),Line In Ch 04,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Bottom Amp (Ch 1-12),Speaker Out Ch 04,Focal 100 OD8 Speaker 04,Speaker Input,speaker-level,,,Sonic Sphere speaker 04; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 05,DB25 to RCA Fanout 1 (Out 1-8),DB25 Ch 5,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 1 (Out 1-8),RCA Ch 5,Dayton MA1260 Bottom Amp (Ch 1-12),Line In Ch 05,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Bottom Amp (Ch 1-12),Speaker Out Ch 05,Focal 100 OD8 Speaker 05,Speaker Input,speaker-level,,,Sonic Sphere speaker 05; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 06,DB25 to RCA Fanout 1 (Out 1-8),DB25 Ch 6,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 1 (Out 1-8),RCA Ch 6,Dayton MA1260 Bottom Amp (Ch 1-12),Line In Ch 06,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Bottom Amp (Ch 1-12),Speaker Out Ch 06,Focal 100 OD8 Speaker 06,Speaker Input,speaker-level,,,Sonic Sphere speaker 06; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 07,DB25 to RCA Fanout 1 (Out 1-8),DB25 Ch 7,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 1 (Out 1-8),RCA Ch 7,Dayton MA1260 Bottom Amp (Ch 1-12),Line In Ch 07,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Bottom Amp (Ch 1-12),Speaker Out Ch 07,Focal 100 OD8 Speaker 07,Speaker Input,speaker-level,,,Sonic Sphere speaker 07; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 08,DB25 to RCA Fanout 1 (Out 1-8),DB25 Ch 8,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 1 (Out 1-8),RCA Ch 8,Dayton MA1260 Bottom Amp (Ch 1-12),Line In Ch 08,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Bottom Amp (Ch 1-12),Speaker Out Ch 08,Focal 100 OD8 Speaker 08,Speaker Input,speaker-level,,,Sonic Sphere speaker 08; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 09,DB25 to RCA Fanout 2 (Out 9-16),DB25 Ch 1,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 2 (Out 9-16),RCA Ch 1,Dayton MA1260 Bottom Amp (Ch 1-12),Line In Ch 09,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Bottom Amp (Ch 1-12),Speaker Out Ch 09,Focal 100 OD8 Speaker 09,Speaker Input,speaker-level,,,Sonic Sphere speaker 09; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 10,DB25 to RCA Fanout 2 (Out 9-16),DB25 Ch 2,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 2 (Out 9-16),RCA Ch 2,Dayton MA1260 Bottom Amp (Ch 1-12),Line In Ch 10,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Bottom Amp (Ch 1-12),Speaker Out Ch 10,Focal 100 OD8 Speaker 10,Speaker Input,speaker-level,,,Sonic Sphere speaker 10; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 11,DB25 to RCA Fanout 2 (Out 9-16),DB25 Ch 3,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 2 (Out 9-16),RCA Ch 3,Dayton MA1260 Bottom Amp (Ch 1-12),Line In Ch 11,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Bottom Amp (Ch 1-12),Speaker Out Ch 11,Focal 100 OD8 Speaker 11,Speaker Input,speaker-level,,,Sonic Sphere speaker 11; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 12,DB25 to RCA Fanout 2 (Out 9-16),DB25 Ch 4,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 2 (Out 9-16),RCA Ch 4,Dayton MA1260 Bottom Amp (Ch 1-12),Line In Ch 12,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Bottom Amp (Ch 1-12),Speaker Out Ch 12,Focal 100 OD8 Speaker 12,Speaker Input,speaker-level,,,Sonic Sphere speaker 12; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 13,DB25 to RCA Fanout 2 (Out 9-16),DB25 Ch 5,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 2 (Out 9-16),RCA Ch 5,Dayton MA1260 Middle Amp (Ch 13-24),Line In Ch 01,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Middle Amp (Ch 13-24),Speaker Out Ch 01,Focal 100 OD8 Speaker 13,Speaker Input,speaker-level,,,Sonic Sphere speaker 13; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 14,DB25 to RCA Fanout 2 (Out 9-16),DB25 Ch 6,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 2 (Out 9-16),RCA Ch 6,Dayton MA1260 Middle Amp (Ch 13-24),Line In Ch 02,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Middle Amp (Ch 13-24),Speaker Out Ch 02,Focal 100 OD8 Speaker 14,Speaker Input,speaker-level,,,Sonic Sphere speaker 14; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 15,DB25 to RCA Fanout 2 (Out 9-16),DB25 Ch 7,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 2 (Out 9-16),RCA Ch 7,Dayton MA1260 Middle Amp (Ch 13-24),Line In Ch 03,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Middle Amp (Ch 13-24),Speaker Out Ch 03,Focal 100 OD8 Speaker 15,Speaker Input,speaker-level,,,Sonic Sphere speaker 15; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 16,DB25 to RCA Fanout 2 (Out 9-16),DB25 Ch 8,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 2 (Out 9-16),RCA Ch 8,Dayton MA1260 Middle Amp (Ch 13-24),Line In Ch 04,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Middle Amp (Ch 13-24),Speaker Out Ch 04,Focal 100 OD8 Speaker 16,Speaker Input,speaker-level,,,Sonic Sphere speaker 16; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 17,DB25 to RCA Fanout 3 (Out 17-24),DB25 Ch 1,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 3 (Out 17-24),RCA Ch 1,Dayton MA1260 Middle Amp (Ch 13-24),Line In Ch 05,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Middle Amp (Ch 13-24),Speaker Out Ch 05,Focal 100 OD8 Speaker 17,Speaker Input,speaker-level,,,Sonic Sphere speaker 17; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 18,DB25 to RCA Fanout 3 (Out 17-24),DB25 Ch 2,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 3 (Out 17-24),RCA Ch 2,Dayton MA1260 Middle Amp (Ch 13-24),Line In Ch 06,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Middle Amp (Ch 13-24),Speaker Out Ch 06,Focal 100 OD8 Speaker 18,Speaker Input,speaker-level,,,Sonic Sphere speaker 18; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 19,DB25 to RCA Fanout 3 (Out 17-24),DB25 Ch 3,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 3 (Out 17-24),RCA Ch 3,Dayton MA1260 Middle Amp (Ch 13-24),Line In Ch 07,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Middle Amp (Ch 13-24),Speaker Out Ch 07,Focal 100 OD8 Speaker 19,Speaker Input,speaker-level,,,Sonic Sphere speaker 19; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 20,DB25 to RCA Fanout 3 (Out 17-24),DB25 Ch 4,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 3 (Out 17-24),RCA Ch 4,Dayton MA1260 Middle Amp (Ch 13-24),Line In Ch 08,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Middle Amp (Ch 13-24),Speaker Out Ch 08,Focal 100 OD8 Speaker 20,Speaker Input,speaker-level,,,Sonic Sphere speaker 20; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 21,DB25 to RCA Fanout 3 (Out 17-24),DB25 Ch 5,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 3 (Out 17-24),RCA Ch 5,Dayton MA1260 Middle Amp (Ch 13-24),Line In Ch 09,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Middle Amp (Ch 13-24),Speaker Out Ch 09,Focal 100 OD8 Speaker 21,Speaker Input,speaker-level,,,Sonic Sphere speaker 21; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 22,DB25 to RCA Fanout 3 (Out 17-24),DB25 Ch 6,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 3 (Out 17-24),RCA Ch 6,Dayton MA1260 Middle Amp (Ch 13-24),Line In Ch 10,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Middle Amp (Ch 13-24),Speaker Out Ch 10,Focal 100 OD8 Speaker 22,Speaker Input,speaker-level,,,Sonic Sphere speaker 22; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 23,DB25 to RCA Fanout 3 (Out 17-24),DB25 Ch 7,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 3 (Out 17-24),RCA Ch 7,Dayton MA1260 Middle Amp (Ch 13-24),Line In Ch 11,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Middle Amp (Ch 13-24),Speaker Out Ch 11,Focal 100 OD8 Speaker 23,Speaker Input,speaker-level,,,Sonic Sphere speaker 23; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 24,DB25 to RCA Fanout 3 (Out 17-24),DB25 Ch 8,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 3 (Out 17-24),RCA Ch 8,Dayton MA1260 Middle Amp (Ch 13-24),Line In Ch 12,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1260 Middle Amp (Ch 13-24),Speaker Out Ch 12,Focal 100 OD8 Speaker 24,Speaker Input,speaker-level,,,Sonic Sphere speaker 24; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 25,DB25 to RCA Fanout 4 (Out 25-32),DB25 Ch 1,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 4 (Out 25-32),RCA Ch 1,Dayton MA1240a Top Amp (Ch 25-30),Line In Ch 01,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1240a Top Amp (Ch 25-30),Speaker Out Ch 01,Focal 100 OD8 Speaker 25,Speaker Input,speaker-level,,,Sonic Sphere speaker 25; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 26,DB25 to RCA Fanout 4 (Out 25-32),DB25 Ch 2,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 4 (Out 25-32),RCA Ch 2,Dayton MA1240a Top Amp (Ch 25-30),Line In Ch 02,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1240a Top Amp (Ch 25-30),Speaker Out Ch 02,Focal 100 OD8 Speaker 26,Speaker Input,speaker-level,,,Sonic Sphere speaker 26; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 27,DB25 to RCA Fanout 4 (Out 25-32),DB25 Ch 3,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 4 (Out 25-32),RCA Ch 3,Dayton MA1240a Top Amp (Ch 25-30),Line In Ch 03,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1240a Top Amp (Ch 25-30),Speaker Out Ch 03,Focal 100 OD8 Speaker 27,Speaker Input,speaker-level,,,Sonic Sphere speaker 27; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 28,DB25 to RCA Fanout 4 (Out 25-32),DB25 Ch 4,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 4 (Out 25-32),RCA Ch 4,Dayton MA1240a Top Amp (Ch 25-30),Line In Ch 04,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1240a Top Amp (Ch 25-30),Speaker Out Ch 04,Focal 100 OD8 Speaker 28,Speaker Input,speaker-level,,,Sonic Sphere speaker 28; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 29,DB25 to RCA Fanout 4 (Out 25-32),DB25 Ch 5,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 4 (Out 25-32),RCA Ch 5,Dayton MA1240a Top Amp (Ch 25-30),Line In Ch 05,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1240a Top Amp (Ch 25-30),Speaker Out Ch 05,Focal 100 OD8 Speaker 29,Speaker Input,speaker-level,,,Sonic Sphere speaker 29; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 30,DB25 to RCA Fanout 4 (Out 25-32),DB25 Ch 6,analog-audio,,,Fanout label and balanced-to-unbalanced wiring require physical verification.,trace-required
+DB25 to RCA Fanout 4 (Out 25-32),RCA Ch 6,Dayton MA1240a Top Amp (Ch 25-30),Line In Ch 06,analog-audio,,,"Bottom MA1260 carries channels 1-12, middle MA1260 carries 13-24, top MA1240a carries 25-30; confirm LINE IN switch state.",probable
+Dayton MA1240a Top Amp (Ch 25-30),Speaker Out Ch 06,Focal 100 OD8 Speaker 30,Speaker Input,speaker-level,,,Sonic Sphere speaker 30; native schematic uses one representative speaker node.,confirmed
+TASCAM ML-32D,Analog Out 31,DB25 to RCA Fanout 4 (Out 25-32),DB25 Ch 7,analog-audio,,,Confirm source output 31 path at physical output/fanout.,trace-required
+DB25 to RCA Fanout 4 (Out 25-32),RCA Ch 7,Devine DI-003,Ch 1 Input,analog-audio,,,TASCAM RCA channel into DI-003; connector adaptation may be present.,trace-required
+Devine DI-003,Ch 1 XLR Out,Devine Onyx 18SXA,Left Line Input,analog-audio,,,DI output to sub left input,confirmed

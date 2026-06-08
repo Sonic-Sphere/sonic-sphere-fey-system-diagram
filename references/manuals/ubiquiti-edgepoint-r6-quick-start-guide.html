@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- Change EP-R6. Example: UniFi UAP-AC-HD -->
+<title>EP-R6 Quick Start Guide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../source/main/image/favicon.ico">
+
+
+<link rel="stylesheet" href="../source/main/css/main.css" media="all">
+<link rel="stylesheet" href="../source/main/css/content.css" media="all">
+<link rel="stylesheet" href="../source/main/css/final.css" media="all">
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+<!--Tip begin-->	
+<div id="Tip"><div class="arrow_box"><a class="closebtn" onClick="closeTip()">&times;</a><p>Click for<br />Table of Contents</p></div></div>
+<!--Tip end-->
+<div id="NAV" >
+<!--Side NAV begin-->
+	<a class="closebtn" onClick="closeNav()">&times;</a>
+<!-- Change Cover Image with Cover_Image_template.png. -->
+	<img src="image/EP-R6_Cover_Image.png" alt="" class="CoverImg"/>
+<!-- Change Logo Image with Logo_template.png. -->
+	<img class="Logo" src="image/EP-R6_Logo.png" alt=""/>
+<!-- Change Description with @Description@ -->
+	<h6>Intelligent WISP Control with FiberProtect®</h6>
+<!-- Change Model with EP-R6 -->
+	<h6>Model: EP-R6</h6>
+	
+	<p>Table&nbsp;of&nbsp;Contents</p>
+	
+<!--Side Table of Contents begin-->	
+<!--Insert Table of Content here - begin-->
+		<ul id="mySidenav">
+			<li class="active"><a class="tablinks" href="#_idTextAnchor000">Package Contents</a></li>
+			<li><a class="tablinks" href="#_idTextAnchor0001">Installation Requirements</a></li>
+			<li><a class="tablinks" href="#_idTextAnchor001">Hardware Overview</a></li>
+			<li><a class="tablinks" href="#_idTextAnchor002">Hardware Installation</a></li>
+			<li><a class="tablinks" href="#_idTextAnchor004">Connecting Ethernet</a></li>
+			<li><a class="tablinks" href="#_idTextAnchor005">Connecting SFP</a></li>
+			<li><a class="tablinks" href="#_idTextAnchor006">Connecting Power</a></li>
+			<li><a class="tablinks" href="#_idTextAnchor008">Accessing the EdgeOS Configuration Interface</a></li>
+			<li><a class="tablinks" href="#_idTextAnchor010">UISP Management</a></li>
+			<li><a class="tablinks" href="#_idTextAnchor012">Specifications</a></li>
+<li><a class="tablinks" href="#SafetyNotices">Safety Notices</a></li>
+<li><a class="tablinks" href="#ElectricalSafetyInformation">Electrical Safety Information</a></li>
+<li><a class="tablinks" href="#LimitedWarranty">Limited Warranty</a></li>
+<li><a class="tablinks" href="#Compliance">Compliance</a></li>
+<li><a class="tablinks" href="#DeclarationOfConformity">Declaration of Conformity</a></li>
+<li><a class="tablinks" href="#OnlineResources">Online Resources</a></li>
+		</ul>	
+<!--Insert Table of Content here - end-->	
+	&nbsp;<br>&nbsp;<br>
+</div>
+<!--Side Table of Contents end-->
+
+
+<!--Fixed Header begin-->
+<div class="Header"><span class="OpenTab" onClick="openNav()"><img src="image/TableMenu.gif" width="40" alt="menu"></span><span class="Title">EP-R6 <span>Quick Start Guide</span></span></div> 
+<!--Fixed Header end-->
+
+
+<!--User Guide Content begin-->
+<div id="main">
+
+<div class="tabcontent">
+	
+ 
+	<h1><a class="anchor" id="_idTextAnchor000"></a>Package Contents</h1>
+
+	
+<!-- Pkg Contents begin-->
+	<div class="PackageContents">
+		<div class="EachItem"><table><tr>
+		  <th><img src="image/EP-R6_PackageContent_EdgePoint.png" alt="" /></th></tr><tr>
+				<td>EdgePoint Router </td>
+				</tr>
+			</table></div>
+		<div class="EachItem"><table><tr>
+		  <th><img src="image/PackageContent_MetalStrap.png" alt="" /></th></tr><tr>
+				<td>Metal Strap</td>
+				</tr>
+			</table></div>
+		<div class="EachItem"><table><tr>
+		  <th><img src="image/Pkg_Contents_24V_1.25_PoE_adapter.png" alt="" /></th></tr><tr>
+				<td>Gigabit PoE (24V, 1.25A) with Mounting Bracket</td>
+				</tr>
+			</table></div>
+		<div class="EachItem"><table><tr>
+		  <th><img src="image/Contents_Power_Cord_PoE.png" alt="" /></th></tr><tr>
+				<td>Power Cord</td>
+				</tr>
+			</table></div>
+		
+		
+		<div class="EndPackageContents"></div>
+	</div>
+<!-- Pkg Contents end-->		
+	
+<!--Paste A-->
+		
+		<h1><a class="anchor" id="_idTextAnchor0001"></a>Installation Requirements</h1>
+		<ul>
+			<li>Phillips screwdriver</li>
+			<li>7 mm socket wrench</li>
+			<li>Ground wire – min. 10 AWG (5 mm<span class="sup">2</span>) and max. length: 1 m. As a safety precaution, ground the EdgePoint to a grounded mast, pole, tower, or grounding bar. </li>
+			<li>Shielded Category 5 (or above) cabling should be used for all wired Ethernet connections and should be grounded through the AC ground of the PoE.<p>We recommend that you protect your networks from harmful outdoor environments and destructive ESD events with industrial-grade, shielded Ethernet cable from Ubiquiti. For more details, visit: <a href="https://www.ui.com/accessories/toughcable/" target="_blank"><span>ui.com/toughcable</span></a></p></li>
+		</ul>
+		<h2>Power Options</h2>
+		<p>Either the VDC input or PoE input is used at any one time. If both input types are connected, only the input type with the highest voltage will be used; the other can be used as a backup. Any of the input options can power any of the output options.</p>
+	<h3><span>Power Input Options</span></h3>
+						<ul>
+							<li>24VDC, 3A</li>
+							<li>24V, 1.4A on <span>eth0 (PoE In)</span></li>
+						</ul>
+	<h3><span>Power Output Options</span></h3>
+						<ul>
+							<li>EdgePoint (required)</li>
+							<li>Passive 24V, 2-Pair PoE on <span>eth0-eth4</span></li>
+						</ul>
+		
+	<p>The number of devices that can be powered depends on the power consumption of the specific devices and the power input option. For example, if you provide 24VDC, 1.25A, then you have 30W of power. If the EdgePoint uses 7W (Max. Power Consumption), then you have 23W available for passive PoE output. Please check product specifications for the power consumption values to use in your calculations.</p>
+		<h1><a class="anchor" id="_idTextAnchor001"></a>Hardware Overview</h1>
+		<p><img src="image/EP-R6_Port_Callouts.png" alt="" class="ImgResponsive90" /></p>
+	<p><img src="image/EP-R6_LED_Callouts.png" alt="" class="ImgResponsive90" /></p>
+
+<!-- 2 columns table begin -->
+<table class="TableBorder">
+<tbody>
+<tr>
+<th colspan="2"><img src="../source/main/image/Callout_1.png" alt="">
+<p>Ground Bonding Point</p></th>
+</tr>
+<tr>
+<td colspan="2"><p>Used to secure a ground wire (not included).</p></td>
+</tr>
+<tr>
+<th colspan="2"><img src="../source/main/image/Callout_2.png" alt="">
+<p>DC Input</p></th>
+</tr>
+<tr>
+<td colspan="2"><p>Terminal block connector accepts 24VDC, 3A input to power the EdgePoint and passive PoE output.</p></td>
+</tr>
+<tr>
+<th colspan="2"><img src="../source/main/image/Callout_3.png" alt="">
+<p>PoE In/eth0 Port
+(24V PoE Out)</p></th>
+</tr>
+<tr>
+<td colspan="2"><p>The RJ45 port supports 10/100/1000 Ethernet connections and has PoE input or output functionality:</p>
+  <ul>
+    <li><span class="BlueBold">PoE Input </span>Accepts 24V, 1.4A PoE input to power the EdgePoint and PoE output.</li>
+    <li><span class="BlueBold">PoE Output </span>You can configure the port for 24V 2-pair PoE output.</li>
+  </ul>
+  <p>Do NOT configure port <span>eth0</span> in PoE output mode if you are using it as a PoE input power source.</p></td>
+</tr>
+<tr>
+<th colspan="2"><img src="../source/main/image/Callout_4.png" alt="">
+<p>eth1 - eth4 Ports
+(24V PoE Out)</p></th>
+</tr>
+<tr>
+<td colspan="2"><p>RJ45 ports support 10/100/1000 Ethernet connections and passive 24V, 2-pair PoE output for airMAX® devices.</p></td>
+</tr>
+<tr>
+<th colspan="2"><img src="../source/main/image/Callout_5.png" alt="">
+<p>eth5/SFP Port</p></th>
+</tr>
+<tr>
+<td colspan="2"><p>SFP port is hot-swappable and supports Gigabit fiber SFP modules.</p>
+  <table class="TableWarning">
+    <tbody>
+      <tr>
+        <th> <p><span><span><img src="image/Note_User_Guide.png" alt="" /></span></span></p>
+        </th>
+        <td><p><span>Note:</span> For installations with extreme temperatures, please use industrial-grade fiber SFP modules.</p></td>
+      </tr>
+    </tbody>
+  </table></td>
+</tr>
+<tr>
+<th colspan="2"><img src="../source/main/image/Callout_6.png" alt="">
+<p>Reset Button</p></th>
+</tr>
+<tr>
+<td colspan="2"><p><a href="https://help.ubnt.com/hc/en-us/articles/205202620-EdgeRouter-Reset-to-Factory-Defaults" target="_blank">Click here</a> to learn how to reset the EdgePoint to factory defaults.</p></td>
+</tr>
+<tr>
+<th colspan="2"><img src="../source/main/image/Callout_7.png" alt="">
+<p>Power LED</p></th>
+</tr>
+<tr>
+  <td width="35%"><p>Green</p></td>
+  <td width="65%"><p>EdgePoint Powered On</p></td>
+</tr>
+<tr>
+  <th colspan="2"><img src="../source/main/image/Callout_8.png" alt="">
+    <p>PoE Output LED (eth1 - eth4 Ports)</p></th>
+</tr>
+<tr>
+  <td><p>Off</p></td>
+  <td><p>No PoE</p></td>
+</tr>
+<tr>
+  <td><p>Green</p></td>
+  <td><p>24V Passive</p></td>
+</tr>
+<tr>
+  <th colspan="2"><img src="../source/main/image/Callout_9.png" alt="">
+    <p>Speed/Link/Activity LED (eth0 - eth5/SFP Ports)</p></th>
+</tr>
+<tr>
+  <td><p>Off</p></td>
+  <td><p>No Link</p></td>
+</tr>
+<tr>
+  <td><p>Green</p></td>
+  <td><p>10/100/1000 Mbps (1 Gbps) Link<br />
+    Flashing Indicates Activity</p></td>
+</tr>
+</tbody>
+</table>
+<!-- 2 columns table end -->
+
+<h1><a class="anchor" id="_idTextAnchor002"></a>Hardware Installation</h1>
+		<h2>Pole Mounting</h2>
+		<ol>
+			<li><p><span><img src="image/EP-R6__Attach_MetalStraps_in_MountingBracket.png" alt="" class="ImgResponsive50" /></span></p></li>
+			<li><p><span><img src="image/EP-R6__Attach_MountingBracket_to_Pole.png" alt="" class="ImgResponsive50" /></span></p></li>
+			<li>Proceed to <a href="#_idTextAnchor003" target="_self"><span>&quot;Grounding the EdgePoint&quot;</span></a>.</li>
+		</ol>
+		<h2><span>Removing the Port Cover</span></h2>
+		<ol>
+			<li><p><img src="image/EP-R6_Remove_Port_Cover.png" alt="" class="ImgResponsive80" /></p></li>
+			<li><p><img src="image/EP-R6_Remove_Plug_Port_Cover.png" alt="" class="ImgResponsive70" /></p></li>
+		</ol>
+		
+	<table class="TableWarning">
+			<tbody>
+				<tr>
+					<th>
+						<p><span><span><img src="image/Note_User_Guide.png" alt="" /></span></span></p>
+					</th>
+					<td>
+						<p><span>Note:</span> Depending on which cables will be connected, remove the corresponding cable feed plugs from the port cover.</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2><span><a class="anchor" id="_idTextAnchor003"></a>Grounding the EdgePoint</span></h2>
+		<p><span><img src="image/EP-R6__Attach_ground_wire.png" alt="" class="ImgResponsive80" /></span></p>
+		<h1><a class="anchor" id="_idTextAnchor004"></a>Connecting Ethernet</h1>
+		<table class="TableWarning">
+			<tbody>
+				<tr>
+					<th>
+						<p><span><span><img src="image/Note_User_Guide.png" alt="" /></span></span></p>
+					</th>
+					<td>
+						<p><span>Note:</span> PoE is disabled by default.</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<p><img src="image/EP-R6__Connect_EthernetCable.png" alt="" class="ImgResponsive80" /></p>
+		<div class="Optional"><p class="TextCenter">Optional</p>
+		<p><img src="image/EP-R6_EthernetCable_Strain_Relief.png" alt="" class="ImgResponsive80" /></p></div>
+		<table class="TableWarning">
+			<tbody>
+				<tr>
+					<th>
+						<p><span><span><img src="image/Note_User_Guide.png" alt="" /></span></span></p>
+					</th>
+					<td>
+						<p><span>Note:</span> Cable ties are not included.</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<h1><a class="anchor" id="_idTextAnchor005"></a>Connecting SFP</h1>
+		<p>For information about compatible fiber SFP modules, visit: <a href="http://ubnt.link/SFP_DAC_Compatibility" target="_blank"><span>ubnt.link/SFP_DAC_Compatibility</span></a></p>
+		<ol>
+			<li><p><img src="image/EP-R6_Connect_SFP_module_to_SFP_port.png" alt="" class="ImgResponsive80" /></p></li>
+			<li><p><img src="image/EP-R6__Connect_FiberOptic_Cable_to_Fiber_SFP_module.png" alt="" class="ImgResponsive80" /></p></li>
+			<li><p><img src="image/EP-R6__StrainRelief_FiberOptic_Cable_to_Fiber_SFP_module.png" alt="" class="ImgResponsive80" /></p></li>
+		</ol>
+		
+	<h1><a class="anchor" id="_idTextAnchor006"></a>Connecting Power</h1>
+		<p>Proceed to the appropriate section: <span>Connecting to the 24VDC Input</span> or <a href="#_idTextAnchor007" target="_self"><span>&quot;Connecting Power Using PoE&quot;</span></a>.</p>
+		<h2>Connecting to the 24VDC Input</h2>
+		<ol>
+			<li><p><img src="image/EP-R6_Connect_DC_PowerCable.png" alt="" class="ImgResponsive80" /></p></li>
+			<li><p><img src="image/EP-R6_Replace_Port_Cover_54VDC_No_Zoom.png" alt="" class="ImgResponsive80" /></p></li><div class="Optional"><p class="TextCenter">Optional</p>
+		<p><img src="image/EP-R6_Replace_Port_Cover_54VDC.png" alt="" class="ImgResponsive80" /></p></div>
+		</ol>
+		
+		
+	<table class="TableWarning">
+			<tbody>
+				<tr>
+					<th>
+						<p><span><span><img src="image/Note_User_Guide.png" alt="" /></span></span></p>
+					</th>
+					<td>
+						<p><span>Note:</span> The set screw is not included.</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2><a class="anchor" id="_idTextAnchor007"></a>Connecting Power Using PoE</h2>
+		<table class="TableWarning">
+			<tbody>
+				<tr>
+					<th>
+						<p><span><span><img src="image/Note_User_Guide.png" alt="" /></span></span></p>
+					</th>
+					<td>
+						<p><span>Note:</span> Do NOT configure port eth0 in PoE output mode if you are using it as a PoE input power source.</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<ol>
+			<li><p><img src="image/EP-R6__Connect_EthernetCable_POE.png" alt="" class="ImgResponsive80" /></p></li>
+			<li><p><img src="image/EP-R6_Outdoor_to_POE_3_Illustrations.png" alt="" class="ImgResponsive100" /></p></li><div class="Optional"><p class="TextCenter">Optional</p><p><img src="image/EP-R6_PoE_WallMount_3_Illustrations.png" alt="" class="ImgResponsive80" /></p></div>
+			<li><p><img src="image/EP-R6_Replace_Port_Cover_PoE_input.png" alt="" class="ImgResponsive80" /></p></li><div class="Optional"><p class="TextCenter">Optional</p>
+		<p><img src="image/EP-R6_Replace_Port_Covered_PoE_input_Zoom.png" alt="" class="ImgResponsive80" /></p></div>
+		</ol>
+		
+		
+	<table class="TableWarning">
+			<tbody>
+				<tr>
+					<th>
+						<p><span><span><img src="image/Note_User_Guide.png" alt="" /></span></span></p>
+					</th>
+					<td>
+						<p><span>Note:</span> The set screw is not included.</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<h1><a class="anchor" id="_idTextAnchor008"></a>Accessing the EdgeOS Configuration Interface</h1>
+		<p>The EdgeOS® configuration interface can be accessed via DHCP or static IP address assignment. By default, <span>eth1</span> is set up as a DHCP client<span>, </span>while<span> eth0</span> is assigned a static IP address of 192.168.1.1. To configure the EdgePoint, proceed to the appropriate section: <span>DHCP</span> or <a href="#_idTextAnchor009" target="_self"><span>&quot;Static IP Address&quot;</span></a>.</p>
+		<h2>DHCP</h2>
+		<p>Use one of the following methods:</p>
+		<ul>
+			<li>Set up the DHCP server to provide a specific IP address to the EdgePoint based on its MAC address (on the label).</li>
+			<li>Let the EdgePoint obtain an IP address and then check the DHCP server to see which IP address was assigned.<ol><li>Connect an Ethernet cable from <span>eth1</span> on the EdgePoint to a LAN segment that has an existing DHCP server.<p><img src="image/EP-R6__Connect_EthernetCable_eth1_no_icon.png" alt="" class="ImgResponsive80" /></p></li><li>Launch your web browser. Enter the appropriate IP address in the address field. Press <span>enter</span> (PC) or <span>return</span> (Mac).</li><li>Enter <span>ubnt</span> in the <span>Username</span> and <span>Password</span> fields. Read the Ubiquiti License Agreement, and check the box next to <span>I agree to the terms of this License Agreement</span> to accept it. Click <span>Login</span>.</li></ol></li>
+		</ul>
+		
+		<p>The EdgeOS Configuration Interface will appear, allowing you to customize your settings as needed. For more information, refer to the EdgeOS User Guide, which is available at <a href="https://www.ui.com/download/edgemax" target="_blank"><span>ui.com/download/edgemax</span></a></p>
+		<p>For more information on PoE configuration, refer to <a href="#_idTextAnchor011" target="_self"><span>&quot;Configuring PoE Settings&quot;</span></a>.</p>
+		<h2><a class="anchor" id="_idTextAnchor009"></a>Static IP Address</h2>
+		<ol>
+			<li>Connect an Ethernet cable from the Ethernet port on your computer to the port labeled <span>eth0</span> on the EdgePoint. (If you are using PoE, connect your computer to the EdgePoint via a PoE switch, or to the adapter’s LAN port.)<p><img src="image/EP-R6__Connect_EthernetCable_eth0.png" alt="" class="ImgResponsive80" /></p></li>
+			<li>Configure the Ethernet adapter on your host system with a static IP address on the 192.168.1.x subnet.</li>
+			<li>Launch your web browser. Type <span>https://192.168.1.1</span> in the address field, and press <span>enter</span> (PC) or <span>return</span> (Mac). </li>
+			<li>Enter <span>ubnt</span> in the <span>Username</span> and <span>Password</span> fields. Read the Ubiquiti License Agreement, and check the box next to <span>I agree to the terms of this License Agreement</span> to accept it. Click <span>Login</span>.</li>
+		</ol>
+		
+		<p>The EdgeOS Configuration Interface will appear, allowing you to customize your settings as needed. For more information, refer to the EdgeOS User Guide, which is available at <a href="https://www.ui.com/download/edgemax" target="_blank"><span>ui.com/download/edgemax</span></a></p>
+		<p>For more information on PoE configuration, refer to <a href="#_idTextAnchor011" target="_self"><span>&quot;Configuring PoE Settings&quot;</span></a>.</p>
+		<h1><a class="anchor" id="_idTextAnchor010"></a>UISP Management</h1>
+		<p>You can manage your device using UISP, which lets you configure, monitor, upgrade, and back up your devices using a single application. Get started at <a href="http://uisp.ui.com" target="_blank"><span>uisp.ui.com</span></a></p>
+		<h2><a class="anchor" id="_idTextAnchor011"></a>Configuring PoE Settings</h2>
+		<table class="TableWarning">
+			<tbody>
+				<tr>
+					<th>
+						<p><span><img src="image/Warning_v2.png" alt="" /></span></p>
+					</th>
+					<td>
+						<p><span>WARNING:</span> Before activating 24V passive PoE, ensure that the connected device supports PoE and the supplied voltage.</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<ol>
+			<li>Go to <span>Actions</span> &gt; <span>PoE</span> for the interface you want to configure.</li>
+			<li>Select Off or <span>24V </span>from the <span>PoE </span>drop-down menu. <table class="TableWarning"><tbody><tr><th><p><span><span><img src="image/Note_User_Guide.png" alt="" /></span></span></p></th><td><p><span>Note:</span> If the PoE screen states that PoE is not supported, then there is insufficient power. You will need to increase the power input to the EdgePoint.</p></td></tr></tbody></table></li>
+			<li>Click <span>Save</span>.</li>
+		</ol>
+		<p>For more information, refer to the EdgeOS User Guide, which is available at <a href="https://www.ui.com/download/edgemax" target="_blank"><span>ui.com/download/edgemax</span></a></p>
+		<h1><span><a class="anchor" id="_idTextAnchor012"></a>Specifications</span></h1>
+		<table class="TableSpecifications">
+		<thead>
+				<tr>
+					<td colspan="2">
+						<p>EP-R6</p>
+					</td>
+				</tr></thead>
+			<tbody>
+				<tr>
+					<th width="40%">
+						<p>Dimensions</p>
+					</th>
+					<td width="60%">
+						<p>188.6 x 177.1 x 49.8 mm (7.43 x 6.97 x 1.96&quot;)</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>Weight</p>
+					</th>
+					<td>
+						<p>605 g (1.33 lb)</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>Max. Power Consumption</p>
+					</th>
+					<td>
+						<p>7W (Excludes PoE Output)</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>Power Input</p>
+					</th>
+					<td>
+						<p>(1) DC Terminal Block or (1) RJ45 (eth0)</p>
+						<p>(Self-Correcting Polarity Protection on DC Terminal Block Only,<br />Diode ORed Protection on All Power Inputs)</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>Power Supply</p>
+					</th>
+					<td>
+						<p>Min. 24V / 0.3A (Excludes PoE Output Power)</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>VDC Input</p>
+					</th>
+					<td>
+						<p>24V, 3A</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>Passive PoE Input</p>
+					</th>
+					<td>
+						<p>(1) 24V / 1.4A, 4-Pair (+1, 2, 4, 5; -3, 6, 7, 8)<br />Passive PoE, eth0</p>
+						<p>(Do NOT configure eth0 in PoE output mode<br />if you are using a PoE input power source.)</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>Passive PoE Output</p>
+					</th>
+					<td>
+						<p>(5) 24V / 0.7A, 2-Pair (+4, 5; -7, 8)<br />Passive PoE, eth0 to eth4</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>Power Monitoring</p>
+					</th>
+					<td>
+						<p>(1) DC Terminal Block, Input Power</p>
+						<p>(1) RJ45, eth0, Input Power</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>Supported Voltage Range</p>
+					</th>
+					<td>
+						<p>16 to 30VDC</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>Button</p>
+					</th>
+					<td>
+						<p>Reset</p>
+					</td>
+				</tr>
+				<tr class="HeadingText">
+					<th>
+						<p>LEDs</p>
+					</th>
+					<td>
+					</td>
+				</tr>
+				<tr class="ListText"><th>System</th><td>Power</td></tr>
+				<tr class="ListText"><th>eth0 to eth4</th><td>Speed/Link/Activity, PoE</td></tr>
+				<tr class="LastListText"><th>eth5/SFP</th><td>Speed/Link/Activity</td></tr>
+				<tr class="HeadingText">
+					<th>
+						<p>Ports</p>
+					</th>
+					<td>
+					</td>
+				</tr>
+
+				<tr class="LastListText"><th>Data Ports</th><td>(5) 10/100/1000 RJ45 Ports<br>(1) 1 Gbps SFP Port</td></tr>
+				<tr>
+					<th>
+						<p>Processor</p>
+					</th>
+					<td>
+						<p>Dual-Core 880 MHz, MIPS1004Kc with Hardware Acceleration for Packet Processing</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>System Memory</p>
+					</th>
+					<td>
+						<p>256 MB DDR3-1600 RAM</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>Code Storage</p>
+					</th>
+					<td>
+						<p>256 MB NAND</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>Pole/Wall Mount</p>
+					</th>
+					<td>
+						<p>Yes</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>Operating Temperature</p>
+					</th>
+					<td>
+						<p>-40 to 65° C (-40 to 149° F)</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>Operating Humidity</p>
+					</th>
+					<td>
+						<p>10 - 90% Noncondensing</p>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<p>Certifications</p>
+					</th>
+					<td>
+						<p>CE, FCC, IC</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+<!--Disclaimer - begin-->
+<div class="Font_FivePT">
+                <!-- Insert Safety Notice 2 warning JS file -->
+<script src="../source/JS/EN/SafetyNotices_2_Warning.js"></script>
+
+                <!-- Insert Electrical Safety Information with Power Cord JS file -->
+<script src="../source/JS/EN/ElectricalSafetyInformation_with_PowerCord.js"></script>
+                <!-- Insert Limited Warranty JS file -->
+<script src="../source/JS/EN/LimitedWarranty.js"></script>
+                <!-- Insert Compliance Wired JS file -->
+<script src="../source/JS/EN/Compliance_wired.js"></script>
+                <h1><a class="anchor" id="DeclarationOfConformity"></a><a href="https://www.ui.com/compliance/" target="_blank" class="BlueBold" >Declaration of Conformity</a></h1><p style="height:30px"></p>
+                <!-- Insert Online Resources JS file -->
+<script src="../source/JS/EN/OnlineResources.js"></script>
+</div>		
+<!--Disclaimer - end-->
+</div>
+
+
+<!--Footer begin-->
+<div class="Footer">&copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> Ubiquiti Inc. All rights reserved.</div>
+<!--Footer end-->
+
+<!--User Guide Content end-->
+
+
+</div>
+
+	
+
+
+
+<script>
+// Add the code below to Replace the Separation Distance
+	
+	
+function openNav() {
+	document.getElementById("NAV").style.left = "0";
+	document.getElementById("Tip").style.display = "none";
+}
+function closeNav() {
+	document.getElementById("NAV").style.left = "-301px";
+	document.getElementById("Tip").style.display = "none";
+}
+function closeTip() {
+	document.getElementById("Tip").className = 'hide';
+}
+
+setTimeout(function(){
+    document.getElementById('Tip').className = 'hide';
+}, 3000);
+	
+
+	
+	
+// Cache selectors
+var lastId,
+    topHeader = $("#Header"),
+	topMenu = $("#mySidenav"),
+    topMenuHeight = topHeader.outerHeight()+0,
+    // All list items
+    menuItems = topMenu.find("a"),
+    // Anchors corresponding to menu items
+    scrollItems = menuItems.map(function(){
+      var item = $($(this).attr("href"));
+      if (item.length) { return item; }
+    });
+
+// Bind click handler to menu items
+// so we can get a fancy scroll animation
+menuItems.click(function(e){
+  var href = $(this).attr("href"),
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+  $('html, body').stop().animate({ 
+      scrollTop: offsetTop
+  }, 300);
+  document.getElementById("NAV").style.left = "-301px";
+});
+
+// Bind to scroll
+$(window).scroll(function(){
+   // Get container scroll position
+   var fromTop = $(this).scrollTop()+topMenuHeight+20;
+   
+   // Get id of current scroll item
+   var cur = scrollItems.map(function(){
+     if ($(this).offset().top < fromTop)
+       return this;
+   });
+   // Get the id of the current element
+   cur = cur[cur.length-1];
+   var id = cur && cur.length ? cur[0].id : "";
+   
+   if (lastId !== id) {
+       lastId = id;
+       // Set/remove active class
+       menuItems
+         .parent().removeClass("active")
+         .end().filter("[href='#"+id+"']").parent().addClass("active");
+   }                   
+});
+	
+</script>
+	
+
+	
+</body>
+</html> 
