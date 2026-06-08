@@ -622,11 +622,12 @@ body.lightbox-open {
 }
 
 .network-schematic {
-  min-height: calc(var(--schematic-grid) * 17);
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-height: calc(var(--schematic-grid) * 26);
+  grid-template-columns: minmax(0, 1fr) minmax(210px, 0.82fr) minmax(0, 1fr);
   grid-template-areas:
-    "net-sources net-switch net-receiver"
-    "trace-poe trace-ubiquiti trace-edge";
+    "net-macbook net-switch net-avio"
+    "net-tascam net-switch net-poe"
+    "net-gp net-switch net-edge";
 }
 
 .flow-source {
@@ -653,28 +654,33 @@ body.lightbox-open {
   grid-area: sub;
 }
 
-.net-sources {
-  grid-area: net-sources;
+.net-macbook {
+  grid-area: net-macbook;
+}
+
+.net-avio {
+  grid-area: net-avio;
 }
 
 .net-switch {
   grid-area: net-switch;
+  align-self: center;
 }
 
-.net-receiver {
-  grid-area: net-receiver;
+.net-tascam {
+  grid-area: net-tascam;
 }
 
-.trace-poe {
-  grid-area: trace-poe;
+.net-poe {
+  grid-area: net-poe;
 }
 
-.trace-ubiquiti {
-  grid-area: trace-ubiquiti;
+.net-gp {
+  grid-area: net-gp;
 }
 
-.trace-edge {
-  grid-area: trace-edge;
+.net-edge {
+  grid-area: net-edge;
 }
 
 .schematic-svg {
@@ -687,12 +693,20 @@ body.lightbox-open {
   overflow: visible;
 }
 
-.schematic-svg-mobile {
-  display: none;
-}
-
 .schematic-svg marker path {
   fill: currentColor;
+}
+
+.schematic-marker-audio {
+  color: var(--orange);
+}
+
+.schematic-marker-sub {
+  color: var(--rose);
+}
+
+.schematic-marker-network {
+  color: var(--teal);
 }
 
 .schematic-path {
@@ -704,9 +718,7 @@ body.lightbox-open {
   vector-effect: non-scaling-stroke;
 }
 
-.schematic-path-audio,
-.schematic-svg #schematic-arrow-audio path,
-.schematic-svg #schematic-arrow-audio-mobile path {
+.schematic-path-audio {
   color: var(--orange);
 }
 
@@ -715,14 +727,7 @@ body.lightbox-open {
   stroke-dasharray: 7 5;
 }
 
-.schematic-svg #schematic-arrow-sub path,
-.schematic-svg #schematic-arrow-sub-mobile path {
-  color: var(--rose);
-}
-
-.schematic-path-network,
-.schematic-svg #schematic-arrow-network path,
-.schematic-svg #schematic-arrow-network-mobile path {
+.schematic-path-network {
   color: var(--teal);
 }
 
@@ -1074,20 +1079,13 @@ body.lightbox-open {
   .network-schematic {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "net-sources"
+      "net-macbook"
+      "net-avio"
       "net-switch"
-      "net-receiver"
-      "trace-poe"
-      "trace-ubiquiti"
-      "trace-edge";
-  }
-
-  .schematic-svg-desktop {
-    display: none;
-  }
-
-  .schematic-svg-mobile {
-    display: block;
+      "net-tascam"
+      "net-poe"
+      "net-gp"
+      "net-edge";
   }
 
   .schematic-label {

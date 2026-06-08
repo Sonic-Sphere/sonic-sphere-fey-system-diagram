@@ -505,9 +505,28 @@
       .join("");
   }
 
-  function diagramNode(kind, kicker, title, lines) {
+  const audioSchematicConnections = [
+    { id: "audio-source-tascam", from: "audio-macbook", to: "audio-tascam", kind: "audio" },
+    { id: "audio-tascam-amps", from: "audio-tascam", to: "audio-amps", kind: "audio" },
+    { id: "audio-amps-speakers", from: "audio-amps", to: "audio-speakers", kind: "audio" },
+    { id: "audio-tascam-di", from: "audio-tascam", to: "audio-di", kind: "sub", label: "sub send", fromSide: "bottom", toSide: "left", mobileLane: "left" },
+    { id: "audio-di-sub", from: "audio-di", to: "audio-sub", kind: "sub" },
+  ];
+
+  const networkSchematicConnections = [
+    { id: "network-macbook-switch", from: "network-macbook", to: "network-switch", kind: "network" },
+    { id: "network-avio-switch", from: "network-avio", to: "network-switch", kind: "network" },
+    { id: "network-tascam-switch", from: "network-tascam", to: "network-switch", kind: "network" },
+    { id: "network-poe-switch", from: "network-poe150s", to: "network-switch", kind: "network" },
+    { id: "network-gp-switch", from: "network-gp-h240", to: "network-switch", kind: "network" },
+    { id: "network-edge-switch", from: "network-edgepoint", to: "network-switch", kind: "network" },
+  ];
+
+  function diagramNode(kind, kicker, title, lines, nodeId = "") {
+    const nodeAttribute = nodeId ? ` data-node="${escapeHtml(nodeId)}"` : "";
+
     return `
-      <div class="diagram-node ${kind}">
+      <div class="diagram-node ${kind}"${nodeAttribute}>
         <div>
           <div class="node-kicker">${escapeHtml(kicker)}</div>
           <div class="node-title">${escapeHtml(title)}</div>
@@ -519,64 +538,52 @@
     `;
   }
 
-  function renderAudioSchematicConnectors() {
+  function renderSchematicConnectors(name, connections) {
     return `
-      <svg class="schematic-svg schematic-svg-desktop" viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true">
+      <svg class="schematic-svg" data-schematic-svg="${escapeHtml(name)}" viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true">
         <defs>
-          <marker id="schematic-arrow-audio" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <marker id="schematic-arrow-${escapeHtml(name)}-audio" class="schematic-marker schematic-marker-audio" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M 0 0 L 10 5 L 0 10 z"></path>
           </marker>
-          <marker id="schematic-arrow-sub" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <marker id="schematic-arrow-${escapeHtml(name)}-sub" class="schematic-marker schematic-marker-sub" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z"></path>
+          </marker>
+          <marker id="schematic-arrow-${escapeHtml(name)}-network" class="schematic-marker schematic-marker-network" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M 0 0 L 10 5 L 0 10 z"></path>
           </marker>
         </defs>
-        <path class="schematic-path schematic-path-audio" d="M220 95H260" marker-end="url(#schematic-arrow-audio)" />
-        <path class="schematic-path schematic-path-audio" d="M460 95H500" marker-end="url(#schematic-arrow-audio)" />
-        <path class="schematic-path schematic-path-audio" d="M700 95H740" marker-end="url(#schematic-arrow-audio)" />
-        <path class="schematic-path schematic-path-sub" d="M360 170V265H500" marker-end="url(#schematic-arrow-sub)" />
-        <path class="schematic-path schematic-path-sub" d="M700 265H740" marker-end="url(#schematic-arrow-sub)" />
-        <text class="schematic-label schematic-label-sub" x="432" y="248">sub send</text>
-      </svg>
-      <svg class="schematic-svg schematic-svg-mobile" viewBox="0 0 320 920" preserveAspectRatio="none" aria-hidden="true">
-        <defs>
-          <marker id="schematic-arrow-audio-mobile" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z"></path>
-          </marker>
-          <marker id="schematic-arrow-sub-mobile" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z"></path>
-          </marker>
-        </defs>
-        <path class="schematic-path schematic-path-audio" d="M160 138V178" marker-end="url(#schematic-arrow-audio-mobile)" />
-        <path class="schematic-path schematic-path-audio" d="M160 298V338" marker-end="url(#schematic-arrow-audio-mobile)" />
-        <path class="schematic-path schematic-path-audio" d="M160 458V498" marker-end="url(#schematic-arrow-audio-mobile)" />
-        <path class="schematic-path schematic-path-sub" d="M102 298V658" marker-end="url(#schematic-arrow-sub-mobile)" />
-        <path class="schematic-path schematic-path-sub" d="M160 778V818" marker-end="url(#schematic-arrow-sub-mobile)" />
-        <text class="schematic-label schematic-label-sub" x="114" y="634">sub send</text>
+        ${connections
+          .map(
+            (connection) => `
+              <path
+                class="schematic-path schematic-path-${escapeHtml(connection.kind)}"
+                data-connector="${escapeHtml(connection.id)}"
+                data-from="${escapeHtml(connection.from)}"
+                data-to="${escapeHtml(connection.to)}"
+                data-kind="${escapeHtml(connection.kind)}"
+                data-from-side="${escapeHtml(connection.fromSide || "")}"
+                data-to-side="${escapeHtml(connection.toSide || "")}"
+                data-mobile-lane="${escapeHtml(connection.mobileLane || "")}"
+                marker-end="url(#schematic-arrow-${escapeHtml(name)}-${escapeHtml(connection.kind)})"
+              />
+              ${
+                connection.label
+                  ? `<text class="schematic-label schematic-label-${escapeHtml(connection.kind)}" data-label-for="${escapeHtml(connection.id)}">${escapeHtml(connection.label)}</text>`
+                  : ""
+              }
+            `,
+          )
+          .join("")}
       </svg>
     `;
   }
 
+  function renderAudioSchematicConnectors() {
+    return renderSchematicConnectors("audio", audioSchematicConnections);
+  }
+
   function renderNetworkSchematicConnectors() {
-    return `
-      <svg class="schematic-svg schematic-svg-desktop" viewBox="0 0 1000 340" preserveAspectRatio="none" aria-hidden="true">
-        <defs>
-          <marker id="schematic-arrow-network" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z"></path>
-          </marker>
-        </defs>
-        <path class="schematic-path schematic-path-network" d="M313 95H353" marker-end="url(#schematic-arrow-network)" />
-        <path class="schematic-path schematic-path-network" d="M646 95H686" marker-end="url(#schematic-arrow-network)" />
-      </svg>
-      <svg class="schematic-svg schematic-svg-mobile" viewBox="0 0 320 920" preserveAspectRatio="none" aria-hidden="true">
-        <defs>
-          <marker id="schematic-arrow-network-mobile" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z"></path>
-          </marker>
-        </defs>
-        <path class="schematic-path schematic-path-network" d="M160 138V178" marker-end="url(#schematic-arrow-network-mobile)" />
-        <path class="schematic-path schematic-path-network" d="M160 298V338" marker-end="url(#schematic-arrow-network-mobile)" />
-      </svg>
-    `;
+    return renderSchematicConnectors("network", networkSchematicConnections);
   }
 
   function renderConnectionDiagrams() {
@@ -587,33 +594,33 @@
           <p class="diagram-note">The 30-speaker path is grouped at device level, while the sub branch is shown separately from the Dayton amp stack.</p>
           <div class="schematic-canvas audio-schematic">
             ${renderAudioSchematicConnectors()}
-            ${diagramNode("audio flow-source", "digital audio", "Dante Virtual Soundcard Tx", [
-              "MacBook transmit source",
+            ${diagramNode("audio flow-source", "source", "MacBook", [
+              "Transmits over Dante Virtual Soundcard",
               "Channels 1-30 speakers",
               "Channel 31 sub/LFE",
-            ])}
+            ], "audio-macbook")}
             ${diagramNode("audio flow-tascam", "conversion", "TASCAM ML-32D", [
               "Dante receive on Primary",
               "D/A to four output D-sub blocks",
               "Sub send to DI-003 on Fanout 4",
-            ])}
+            ], "audio-tascam")}
             ${diagramNode("audio flow-amps", "amplification", "Dayton amp stack", [
               "MA1240a Top: speakers 25-30",
               "MA1260 Middle: speakers 13-24",
               "MA1260 Bottom: speakers 1-12",
-            ])}
+            ], "audio-amps")}
             ${diagramNode("audio flow-speakers", "loads", "Focal 100 OD8 speaker array", [
               "30 passive speakers",
               "Driven from Dayton speaker outputs",
-            ])}
+            ], "audio-speakers")}
             ${diagramNode("audio flow-di", "sub interface", "Devine DI-003", [
               "From Fanout 4 RCA Ch 07",
               "XLR output to sub left input",
-            ])}
+            ], "audio-di")}
             ${diagramNode("audio flow-sub", "subwoofer", "Devine Onyx 18SXA", [
               "Powered subwoofer",
               "Left line input connected",
-            ])}
+            ], "audio-sub")}
           </div>
         </article>
 
@@ -622,37 +629,40 @@
           <p class="diagram-note">Network hardware is shown separately so the Dante signal path stays readable.</p>
           <div class="schematic-canvas network-schematic">
             ${renderNetworkSchematicConnectors()}
-            ${diagramNode("network net-sources", "sources", "MacBook + AVIO Bluetooth", [
-              "MacBook through Anker 543 Ethernet",
-              "Bluetooth adapter through Dante RJ45 + PoE",
-            ])}
-            ${diagramNode("network net-switch", "switch", "TP-Link 5-port switch", [
-              "Port 1: Anker 543 hub",
-              "Port 2: TASCAM Primary",
-              "Port 3: AVIO Bluetooth",
-              "Port 4: occupied, endpoint unknown",
-            ])}
-            ${diagramNode("network net-receiver", "receiver", "TASCAM ML-32D", [
+            ${diagramNode("network net-macbook", "computer", "MacBook", [
+              "Ethernet through Anker 543 hub",
+              "Dante Virtual Soundcard source",
+            ], "network-macbook")}
+            ${diagramNode("network net-avio", "Dante endpoint", "Dante AVIO Bluetooth", [
+              "RJ45 Dante + PoE",
+              "Bluetooth audio source",
+            ], "network-avio")}
+            ${diagramNode("network net-switch", "network hub", "TP-Link 5-port switch", [
+              "Central local switch",
+              "Visible network devices connect here",
+              "High-level star view, no ports",
+            ], "network-switch")}
+            ${diagramNode("network net-tascam", "Dante endpoint", "TASCAM ML-32D", [
               "Primary Dante connected",
               "Secondary Dante disconnected",
-            ])}
-            ${diagramNode("network trace trace-poe", "power trace", "TP-Link POE150S", [
-              "LAN In endpoint unknown",
-              "PoE Out endpoint unknown",
-            ])}
-            ${diagramNode("network trace trace-ubiquiti", "power trace", "Ubiquiti GP-H240-125G", [
-              "24 V passive PoE injector",
-              "Endpoints unknown",
-            ])}
-            ${diagramNode("network trace trace-edge", "site network", "Ubiquiti EdgePoint R6", [
-              "Site-network role unknown",
-              "Keep separate until traced",
-            ])}
+            ], "network-tascam")}
+            ${diagramNode("network net-poe", "PoE injector", "TP-Link POE150S", [
+              "LAN side connected to switch",
+              "PoE output to powered device",
+            ], "network-poe150s")}
+            ${diagramNode("network net-gp", "24 V PoE injector", "Ubiquiti GP-H240-125G", [
+              "LAN side connected to switch",
+              "24 V PoE output to site device",
+            ], "network-gp-h240")}
+            ${diagramNode("network net-edge", "site router", "Ubiquiti EdgePoint R6", [
+              "Connected to TP-Link switch",
+              "Site-network role",
+            ], "network-edgepoint")}
           </div>
           <div class="legend-row">
             <span class="chip">Dante / Ethernet</span>
             <span class="chip">Analog audio</span>
-            <span class="chip">Unknown endpoint</span>
+            <span class="chip">PoE / site hardware</span>
           </div>
         </article>
       </div>
@@ -823,6 +833,153 @@
     });
   }
 
+  function getRelativeRect(element, canvasRect) {
+    const rect = element.getBoundingClientRect();
+
+    return {
+      left: rect.left - canvasRect.left,
+      right: rect.right - canvasRect.left,
+      top: rect.top - canvasRect.top,
+      bottom: rect.bottom - canvasRect.top,
+      width: rect.width,
+      height: rect.height,
+      centerX: rect.left - canvasRect.left + rect.width / 2,
+      centerY: rect.top - canvasRect.top + rect.height / 2,
+    };
+  }
+
+  function anchorForSide(rect, side) {
+    if (side === "left") return { x: rect.left, y: rect.centerY, side };
+    if (side === "right") return { x: rect.right, y: rect.centerY, side };
+    if (side === "top") return { x: rect.centerX, y: rect.top, side };
+    if (side === "bottom") return { x: rect.centerX, y: rect.bottom, side };
+    return { x: rect.centerX, y: rect.centerY, side: "center" };
+  }
+
+  function chooseConnectorSides(fromRect, toRect, fromPreference, toPreference) {
+    const deltaX = toRect.centerX - fromRect.centerX;
+    const deltaY = toRect.centerY - fromRect.centerY;
+    const isMostlyVertical = Math.abs(deltaY) > Math.abs(deltaX) * 1.15;
+
+    if (isMostlyVertical && !fromPreference && !toPreference) {
+      return deltaY >= 0
+        ? { fromSide: "bottom", toSide: "top" }
+        : { fromSide: "top", toSide: "bottom" };
+    }
+
+    return {
+      fromSide: fromPreference || (deltaX >= 0 ? "right" : "left"),
+      toSide: toPreference || (deltaX >= 0 ? "left" : "right"),
+    };
+  }
+
+  function isSingleColumnGrid(canvas) {
+    return getComputedStyle(canvas).gridTemplateColumns.trim().split(/\s+/).length === 1;
+  }
+
+  function buildOrthogonalPath(fromAnchor, toAnchor, laneX = null) {
+    if (Number.isFinite(laneX)) {
+      return `M${fromAnchor.x} ${fromAnchor.y}H${laneX}V${toAnchor.y}H${toAnchor.x}`;
+    }
+
+    const fromVertical = fromAnchor.side === "top" || fromAnchor.side === "bottom";
+    const toVertical = toAnchor.side === "top" || toAnchor.side === "bottom";
+
+    if (fromVertical && toVertical) {
+      const midY = (fromAnchor.y + toAnchor.y) / 2;
+      return `M${fromAnchor.x} ${fromAnchor.y}V${midY}H${toAnchor.x}V${toAnchor.y}`;
+    }
+
+    if (!fromVertical && !toVertical) {
+      const midX = (fromAnchor.x + toAnchor.x) / 2;
+      return `M${fromAnchor.x} ${fromAnchor.y}H${midX}V${toAnchor.y}H${toAnchor.x}`;
+    }
+
+    if (fromVertical) {
+      return `M${fromAnchor.x} ${fromAnchor.y}V${toAnchor.y}H${toAnchor.x}`;
+    }
+
+    return `M${fromAnchor.x} ${fromAnchor.y}H${toAnchor.x}V${toAnchor.y}`;
+  }
+
+  function positionConnectorLabel(label, fromAnchor, toAnchor, laneX = null) {
+    const x = Number.isFinite(laneX) ? laneX + 8 : (fromAnchor.x + toAnchor.x) / 2;
+    const y = (fromAnchor.y + toAnchor.y) / 2 - 8;
+
+    label.setAttribute("x", String(Math.max(8, x)));
+    label.setAttribute("y", String(Math.max(16, y)));
+  }
+
+  function drawSchematicConnectors() {
+    const canvases = document.querySelectorAll(".schematic-canvas");
+
+    canvases.forEach((canvas) => {
+      const svg = canvas.querySelector(".schematic-svg");
+      if (!svg) return;
+
+      const canvasRect = canvas.getBoundingClientRect();
+      svg.setAttribute("viewBox", `0 0 ${canvasRect.width} ${canvasRect.height}`);
+
+      const isSingleColumn = isSingleColumnGrid(canvas);
+
+      svg.querySelectorAll("[data-connector]").forEach((path) => {
+        const fromNode = canvas.querySelector(`[data-node="${path.getAttribute("data-from")}"]`);
+        const toNode = canvas.querySelector(`[data-node="${path.getAttribute("data-to")}"]`);
+        if (!fromNode || !toNode) return;
+
+        const fromRect = getRelativeRect(fromNode, canvasRect);
+        const toRect = getRelativeRect(toNode, canvasRect);
+        const mobileLane = path.getAttribute("data-mobile-lane");
+        const useMobileLane = isSingleColumn && mobileLane === "left";
+        const sideChoice = useMobileLane
+          ? { fromSide: "left", toSide: "left" }
+          : chooseConnectorSides(
+              fromRect,
+              toRect,
+              path.getAttribute("data-from-side"),
+              path.getAttribute("data-to-side"),
+            );
+        const fromAnchor = anchorForSide(fromRect, sideChoice.fromSide);
+        const toAnchor = anchorForSide(toRect, sideChoice.toSide);
+        const laneX = useMobileLane ? Math.max(8, Math.min(fromAnchor.x, toAnchor.x) - 14) : null;
+
+        path.setAttribute("d", buildOrthogonalPath(fromAnchor, toAnchor, laneX));
+
+        const label = svg.querySelector(`[data-label-for="${path.getAttribute("data-connector")}"]`);
+        if (label) positionConnectorLabel(label, fromAnchor, toAnchor, laneX);
+      });
+    });
+  }
+
+  function setupSchematicConnectors() {
+    let scheduled = false;
+    const scheduleDraw = () => {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(() => {
+        scheduled = false;
+        drawSchematicConnectors();
+      });
+    };
+
+    scheduleDraw();
+    window.addEventListener("load", scheduleDraw, { once: true });
+    window.addEventListener("resize", scheduleDraw);
+    document.fonts?.ready.then(scheduleDraw);
+
+    document.querySelectorAll("img").forEach((image) => {
+      image.addEventListener("load", scheduleDraw, { once: true });
+      image.addEventListener("error", scheduleDraw, { once: true });
+    });
+
+    if ("ResizeObserver" in window) {
+      const resizeObserver = new ResizeObserver(scheduleDraw);
+      document.querySelectorAll(".schematic-canvas, .schematic-canvas [data-node]").forEach((element) => {
+        resizeObserver.observe(element);
+      });
+    }
+  }
+
   function setupFilters() {
     const buttons = document.querySelectorAll("[data-filter]");
     const cards = document.querySelectorAll("[data-device-group]");
@@ -879,8 +1036,8 @@
           <section class="section" id="connections">
             <div class="section-head">
               <div>
-                <p class="label">02 / High level signal flow</p>
-                <h2>High level signal flow</h2>
+                <p class="label">02 / Signal flow</p>
+                <h2>Signal flow</h2>
               </div>
             </div>
             ${renderConnectionDiagrams()}
@@ -914,6 +1071,7 @@
 
     setupPhotoStatus();
     setupPhotoLightbox();
+    setupSchematicConnectors();
     setupFilters();
   }
 
