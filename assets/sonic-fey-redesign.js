@@ -514,12 +514,12 @@
   ];
 
   const networkSchematicConnections = [
-    { id: "network-macbook-switch", from: "network-macbook", to: "network-switch", kind: "network" },
-    { id: "network-avio-switch", from: "network-avio", to: "network-switch", kind: "network" },
-    { id: "network-tascam-switch", from: "network-tascam", to: "network-switch", kind: "network" },
-    { id: "network-poe-switch", from: "network-poe150s", to: "network-switch", kind: "network" },
-    { id: "network-gp-switch", from: "network-gp-h240", to: "network-switch", kind: "network" },
-    { id: "network-edge-switch", from: "network-edgepoint", to: "network-switch", kind: "network" },
+    { id: "network-macbook-switch", from: "network-macbook", to: "network-switch", kind: "network", mobileLane: "left" },
+    { id: "network-avio-switch", from: "network-avio", to: "network-switch", kind: "network", mobileLane: "right" },
+    { id: "network-tascam-switch", from: "network-tascam", to: "network-switch", kind: "network", mobileLane: "left" },
+    { id: "network-poe-switch", from: "network-poe150s", to: "network-switch", kind: "network", mobileLane: "right" },
+    { id: "network-gp-switch", from: "network-gp-h240", to: "network-switch", kind: "network", mobileLane: "left" },
+    { id: "network-edge-switch", from: "network-edgepoint", to: "network-switch", kind: "network", mobileLane: "right" },
   ];
 
   function diagramNode(kind, kicker, title, lines, nodeId = "") {
@@ -939,9 +939,9 @@
         const fromRect = getRelativeRect(fromNode, canvasRect);
         const toRect = getRelativeRect(toNode, canvasRect);
         const mobileLane = path.getAttribute("data-mobile-lane");
-        const useMobileLane = isSingleColumn && mobileLane === "left";
+        const useMobileLane = isSingleColumn && (mobileLane === "left" || mobileLane === "right");
         const sideChoice = useMobileLane
-          ? { fromSide: "left", toSide: "left" }
+          ? { fromSide: mobileLane, toSide: mobileLane }
           : chooseConnectorSides(
               fromRect,
               toRect,
@@ -950,7 +950,11 @@
             );
         const fromAnchor = anchorForSide(fromRect, sideChoice.fromSide);
         const toAnchor = anchorForSide(toRect, sideChoice.toSide, fromAnchor);
-        const laneX = useMobileLane ? Math.max(8, Math.min(fromAnchor.x, toAnchor.x) - 14) : null;
+        const laneX = useMobileLane
+          ? mobileLane === "left"
+            ? Math.max(8, Math.min(fromAnchor.x, toAnchor.x) - 14)
+            : Math.min(canvasRect.width - 8, Math.max(fromAnchor.x, toAnchor.x) + 14)
+          : null;
 
         path.setAttribute("d", buildOrthogonalPath(fromAnchor, toAnchor, laneX));
 
