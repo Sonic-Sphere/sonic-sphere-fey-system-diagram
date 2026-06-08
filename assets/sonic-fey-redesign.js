@@ -509,7 +509,7 @@
     { id: "audio-source-tascam", from: "audio-macbook", to: "audio-tascam", kind: "audio" },
     { id: "audio-tascam-amps", from: "audio-tascam", to: "audio-amps", kind: "audio" },
     { id: "audio-amps-speakers", from: "audio-amps", to: "audio-speakers", kind: "audio" },
-    { id: "audio-tascam-di", from: "audio-tascam", to: "audio-di", kind: "sub", label: "sub send", fromSide: "bottom", toSide: "left", mobileLane: "left" },
+    { id: "audio-tascam-di", from: "audio-tascam", to: "audio-di", kind: "sub", fromSide: "bottom", toSide: "top", centerEdges: true, mobileLane: "left" },
     { id: "audio-di-sub", from: "audio-di", to: "audio-sub", kind: "sub" },
   ];
 
@@ -564,6 +564,7 @@
                 data-from-side="${escapeHtml(connection.fromSide || "")}"
                 data-to-side="${escapeHtml(connection.toSide || "")}"
                 data-mobile-lane="${escapeHtml(connection.mobileLane || "")}"
+                data-center-edges="${connection.centerEdges ? "true" : "false"}"
                 marker-end="url(#schematic-arrow-${escapeHtml(name)}-${escapeHtml(connection.kind)})"
               />
               ${
@@ -602,7 +603,7 @@
             ${diagramNode("audio flow-tascam", "conversion", "TASCAM ML-32D", [
               "Dante receive on Primary",
               "D/A to four output D-sub blocks",
-              "Sub send to DI-003 on Fanout 4",
+              "Fanout 4 RCA Ch 07 to DI-003",
             ], "audio-tascam")}
             ${diagramNode("audio flow-amps", "amplification", "Dayton amp stack", [
               "MA1240a Top: speakers 25-30",
@@ -948,8 +949,9 @@
               path.getAttribute("data-from-side"),
               path.getAttribute("data-to-side"),
             );
+        const centerEdges = path.getAttribute("data-center-edges") === "true";
         const fromAnchor = anchorForSide(fromRect, sideChoice.fromSide);
-        const toAnchor = anchorForSide(toRect, sideChoice.toSide, fromAnchor);
+        const toAnchor = anchorForSide(toRect, sideChoice.toSide, centerEdges ? null : fromAnchor);
         const laneX = useMobileLane
           ? mobileLane === "left"
             ? Math.max(8, Math.min(fromAnchor.x, toAnchor.x) - 14)
