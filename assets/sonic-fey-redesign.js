@@ -73,7 +73,8 @@
     { pattern: /usb/i, key: "usbPort" },
   ];
 
-  const photoBasePath = "/SonicSphereFeySystemDiagram/assets/equipment-photos/";
+  const scriptUrl = document.currentScript?.src || new URL("assets/sonic-fey-redesign.js", window.location.href).href;
+  const photoBasePath = new URL("equipment-photos/", scriptUrl).href;
 
   const equipmentItems = [
     equipment("MacBook Air M2 (2022)", "Playback computer and Dante control surface", "Runs Dante Controller and the playback source, then sends Dante audio through wired Ethernet.", ["DVS", "USB-C", "software source"], [
