@@ -848,11 +848,20 @@
     };
   }
 
-  function anchorForSide(rect, side) {
-    if (side === "left") return { x: rect.left, y: rect.centerY, side };
-    if (side === "right") return { x: rect.right, y: rect.centerY, side };
-    if (side === "top") return { x: rect.centerX, y: rect.top, side };
-    if (side === "bottom") return { x: rect.centerX, y: rect.bottom, side };
+  function clampValue(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  function anchorForSide(rect, side, referencePoint = null) {
+    const insetX = Math.min(24, rect.width / 2);
+    const insetY = Math.min(24, rect.height / 2);
+    const referenceX = referencePoint ? clampValue(referencePoint.x, rect.left + insetX, rect.right - insetX) : rect.centerX;
+    const referenceY = referencePoint ? clampValue(referencePoint.y, rect.top + insetY, rect.bottom - insetY) : rect.centerY;
+
+    if (side === "left") return { x: rect.left, y: referenceY, side };
+    if (side === "right") return { x: rect.right, y: referenceY, side };
+    if (side === "top") return { x: referenceX, y: rect.top, side };
+    if (side === "bottom") return { x: referenceX, y: rect.bottom, side };
     return { x: rect.centerX, y: rect.centerY, side: "center" };
   }
 
@@ -940,7 +949,7 @@
               path.getAttribute("data-to-side"),
             );
         const fromAnchor = anchorForSide(fromRect, sideChoice.fromSide);
-        const toAnchor = anchorForSide(toRect, sideChoice.toSide);
+        const toAnchor = anchorForSide(toRect, sideChoice.toSide, fromAnchor);
         const laneX = useMobileLane ? Math.max(8, Math.min(fromAnchor.x, toAnchor.x) - 14) : null;
 
         path.setAttribute("d", buildOrthogonalPath(fromAnchor, toAnchor, laneX));
