@@ -509,7 +509,7 @@
     { id: "audio-source-tascam", from: "audio-macbook", to: "audio-tascam", kind: "audio" },
     { id: "audio-tascam-amps", from: "audio-tascam", to: "audio-amps", kind: "audio" },
     { id: "audio-amps-speakers", from: "audio-amps", to: "audio-speakers", kind: "audio" },
-    { id: "audio-tascam-di", from: "audio-tascam", to: "audio-di", kind: "sub", fromSide: "bottom", toSide: "top", centerEdges: true, mobileLane: "left" },
+    { id: "audio-tascam-di", from: "audio-tascam", to: "audio-di", kind: "sub", fromSide: "bottom", toSide: "left", centerEdges: true, mobileLane: "left" },
     { id: "audio-di-sub", from: "audio-di", to: "audio-sub", kind: "sub" },
   ];
 
