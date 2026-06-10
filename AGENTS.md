@@ -4,6 +4,7 @@
 
 - Permanent local URL: `http://127.0.0.1:18073/SonicSphereFeySystemDiagram/`
 - Diagram route: `http://127.0.0.1:18073/SonicSphereFeySystemDiagram/#/diagram`
+- Hidden full-system route: `http://127.0.0.1:18073/SonicSphereFeySystemDiagram/#/full-system`
 - Pinned dev server port: `18073`
 - Serve with: `python3 serve.py`
 - If port `18073` is occupied, stop the stale server or ask before assigning a new permanent URL.

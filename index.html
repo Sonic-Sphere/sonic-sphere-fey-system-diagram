@@ -4,10 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fey Sonic Sphere System Description</title>
-    <link rel="stylesheet" href="assets/sonic-fey-redesign.css?v=20260608-schematic-4" />
-    <script defer src="assets/sonic-fey-redesign.js?v=20260608-schematic-4"></script>
+    <link rel="icon" href="data:," />
+    <link id="route-stylesheet" rel="stylesheet" href="" />
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      (function () {
+        const cacheKey = "20260610-full-system-13";
+        const routes = {
+          "/full-system": {
+            title: "Fey Sonic Sphere Full System Diagram",
+            css: `assets/full-system-diagram.css?v=${cacheKey}`,
+            js: `assets/full-system-diagram.js?v=${cacheKey}`,
+          },
+          default: {
+            title: "Fey Sonic Sphere System Description",
+            css: "assets/sonic-fey-redesign.css?v=20260608-schematic-4",
+            js: "assets/sonic-fey-redesign.js?v=20260608-schematic-4",
+          },
+        };
+
+        function currentRoute() {
+          const path = (window.location.hash || "#/diagram").replace(/^#/, "").split(/[?#]/)[0];
+          return routes[path] || routes.default;
+        }
+
+        function loadRoute() {
+          const route = currentRoute();
+          const root = document.getElementById("root");
+          const stylesheet = document.getElementById("route-stylesheet");
+          const existingScript = document.querySelector("script[data-route-script]");
+
+          document.title = route.title;
+          if (root) root.innerHTML = "";
+          if (stylesheet) stylesheet.href = route.css;
+          if (existingScript) existingScript.remove();
+
+          const script = document.createElement("script");
+          script.src = route.js;
+          script.defer = true;
+          script.dataset.routeScript = "true";
+          document.body.appendChild(script);
+        }
+
+        window.addEventListener("hashchange", loadRoute);
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", loadRoute, { once: true });
+        } else {
+          loadRoute();
+        }
+      })();
+    </script>
   </body>
 </html>

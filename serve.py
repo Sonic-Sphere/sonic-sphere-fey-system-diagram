@@ -11,24 +11,29 @@ ROOT = Path(__file__).resolve().parent
 
 
 class ProjectHandler(SimpleHTTPRequestHandler):
-    def maybe_redirect_diagram_path(self):
+    def maybe_redirect_hash_route(self):
         request_path = urlparse(self.path).path
-        if request_path == PROJECT_PATH + "/diagram":
+        hash_routes = {
+            PROJECT_PATH + "/diagram": PROJECT_PATH + "/#/diagram",
+            PROJECT_PATH + "/full-system": PROJECT_PATH + "/#/full-system",
+        }
+
+        if request_path in hash_routes:
             self.send_response(302)
-            self.send_header("Location", PROJECT_PATH + "/#/diagram")
+            self.send_header("Location", hash_routes[request_path])
             self.end_headers()
             return True
 
         return False
 
     def do_GET(self):
-        if self.maybe_redirect_diagram_path():
+        if self.maybe_redirect_hash_route():
             return
 
         super().do_GET()
 
     def do_HEAD(self):
-        if self.maybe_redirect_diagram_path():
+        if self.maybe_redirect_hash_route():
             return
 
         super().do_HEAD()
